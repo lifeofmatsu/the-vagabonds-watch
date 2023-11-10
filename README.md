@@ -1,12 +1,12 @@
 # the-vagabonds-watch
 UCSD Coding Bootcamp Project 1
 
-USER STORY
+# USER STORY
 As A Coding Bootcamp student
 I WANT to be able to easily look up the time and time zone of a specific location
 and have the ability to view a history of locations I've previously searched for.
 
-ACCEPTANCE CRITERIA
+# ACCEPTANCE CRITERIA
 
 WHEN I open the site, 
 THEN I see a clear homepage that displays a search bar for entering a specific location
