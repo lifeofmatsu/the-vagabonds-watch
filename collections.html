@@ -18,6 +18,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,300;0,400;0,500;1,300;1,400;1,500&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="./assets/css/reset.css" />
     <link rel="stylesheet" href="./assets/css/style.css" />
+    <link rel="stylesheet" href="./assets/css/analog.css" />
 
     <!-- Tailwind framework for css -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -45,11 +46,32 @@
                     <span class="toggle round"></span>
                 </label>
         </section>
+
         <section class="container">
             <h2>Time Collection</h2>
             <h3>History of places one has been.</h3>
-            
+        </section>
+
+        <section class="container">
+            <div class="clock">
+                <span class="hand sec animate"></span>
+                <span class="hand minutes animate"></span> 
+                <span class="hand hours animate"></span> 
+                <span class="pin"></span>
+              </div>
         </section>
     </main>
+
+    <footer>
+
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/dayjs@1.11.3/dayjs.min.js"
+    integrity="sha256-iu/zLUB+QgISXBLCW/mcDi/rnf4m4uEDO0wauy76x7U=" crossorigin="anonymous">
+    </script>
+    <script src="./assets/js/script.js"></script>
+    <script src="./assets/js/collections.js"></script>
+    <script src="./assets/js/analog.js"></script>
 </body>
 </html>
