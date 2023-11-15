@@ -43,25 +43,33 @@
                     <span class="toggle round"></span>
                 </label>
         </section>
-        <section class="container">
-            <div class="search-column">
-                <!-- search bar -->
-                <input id="city-search" type="text" placeholder="Search city or zipcode" title="Type in a city name or zipcode">
-                <ul class="city-menu" id="top-cities" role="list">
-                    <!-- suggested cities are 10 largest in the world source: U.S. News & World Report -->
-                    <li role="listitem"><a href="#">Tokyo, Japan</a></li>
-                    <li role="listitem"><a href="#">Delhi, India</a></li>
-                    <li role="listitem"><a href="#">Shanghai, China</a></li>
-                    <li role="listitem"><a href="#">São Paulo, Brazil</a></li>
-                    <li role="listitem"><a href="#">Mexico City, Mexico</a></li>
-                    <li role="listitem"><a href="#">Dhaka, Bangladesh</a></li>
-                    <li role="listitem"><a href="#">Cairo, Egypt</a></li>
-                    <li role="listitem"><a href="#">Beijing, China</a></li>
-                    <li role="listitem"><a href="#">Mumbai, India</a></li>
-                    <li role="listitem"><a href="#">Osaka, Japan</a></li>
-                </ul>
+        <body onload="setDefaultCountry()">
+            <div id="container">
+                <div id="search">
+                    <!--city name-->
+                    <span style="position: relative; z-index: 24;">
+                        <input type="search" id="searchInp" placeholder="Enter City Name" onblur="closeSuggestBox();">
+                        <span style="position: absolute; top: 20px; left: 0px; z-index:25; visibility: hidden;" id="suggestBoxElement"></span>
+                    </span>
+        
+                    <!--country/postal code-->
+                    <select id="countrySelect"></select>
+                    <input id="postalcodeInput" name="postalcode" onblur="postalCodeLookup();" size="10" type="text">
+        
+                    <button id="data" onclick="showData()">Search</button>
+                </div>
+                <div id="result">
+                    <div id="cityInfo"></div>
+                </div>
             </div>
-            <div class="result-column">
+        
+            <!--jsr class-->
+            <script type="text/javascript" src="/export/jsr_class.js"></script>
+            <!--geonames.js with my username-->
+            <script type="text/javascript" src="//api.geonames.org/export/geonamesData.js?username=ljnorton12"></script>
+            <!--script.js file-->
+            <script src="script.js"></script>
+        </body>
                 
             </div>
         </section>
