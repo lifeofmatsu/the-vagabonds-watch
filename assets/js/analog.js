@@ -189,6 +189,20 @@ function updateDigitalTimeAndCity(time, locationData) {
     document.getElementById('cityCountry').innerText = locationDisplay;
 }
 
+document.getElementById('addToCollectionBtn').addEventListener('click', function() {
+    const collection = JSON.parse(localStorage.getItem('clockCollection')) || [];
+    const newClock = {
+        time: globalTime.toString(),
+        location: document.getElementById('cityCountry').innerText,
+        timezoneOffset: globalTime.getTimezoneOffset() // Save timezone offset or other relevant data
+    };
+    collection.push(newClock);
+    localStorage.setItem('clockCollection', JSON.stringify(collection));
+    
+    window.location.href = 'collections.html'; // Redirect to Collections page
+});
+
+
 startClocks();
 
 
