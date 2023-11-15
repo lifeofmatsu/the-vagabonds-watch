@@ -44,31 +44,33 @@
         </section>
     </header>
 
-    <main>
-        <section class="left-container">
-            <div id="search" class="search-container">
-                <input class="search-bar" type="text" id="cityInput" placeholder="Enter City Name or Postal Code">
+    <main class="parent-container">
+        <section class="search-container">
+            <div id="search">
+                <input type="text" id="cityInput" placeholder="Enter City Name or Postal Code" list="suggestions">
                 <br> <!-- Line break to move the button below the input field -->
-                <button onclick="fetchCityTime()">Search</button>
+                <button id="searchButton">Search</button>
+                <datalist id="suggestions">
+                    <!-- Suggestions will be populated here -->
+                </datalist>
             </div>
             <div>
                 <ul class="city-menu" id="top-cities" role="list">
-                    <!-- suggested cities are 10 largest in the world source: U.S. News & World Report -->
-                    <li role="listitem"><a href="#">Tokyo, Japan</a></li>
-                    <li role="listitem"><a href="#">Delhi, India</a></li>
-                    <li role="listitem"><a href="#">Shanghai, China</a></li>
-                    <li role="listitem"><a href="#">São Paulo, Brazil</a></li>
-                    <li role="listitem"><a href="#">Mexico City, Mexico</a></li>
-                    <li role="listitem"><a href="#">Dhaka, Bangladesh</a></li>
-                    <li role="listitem"><a href="#">Cairo, Egypt</a></li>
-                    <li role="listitem"><a href="#">Beijing, China</a></li>
-                    <li role="listitem"><a href="#">Mumbai, India</a></li>
-                    <li role="listitem"><a href="#">Osaka, Japan</a></li>
+                    <li role="listitem"><a href="#" data-city="Tokyo, Japan">Tokyo, Japan</a></li>
+                    <li role="listitem"><a href="#" data-city="Delhi, India">Delhi, India</a></li>
+                    <li role="listitem"><a href="#" data-city="Shanghai, China">Shanghai, China</a></li>
+                    <li role="listitem"><a href="#" data-city="São Paulo, Brazil">São Paulo, Brazil</a></li>
+                    <li role="listitem"><a href="#" data-city="Mexico City, Mexico">Mexico City, Mexico</a></li>
+                    <li role="listitem"><a href="#" data-city="Dhaka, Bangladesh">Dhaka, Bangladesh</a></li>
+                    <li role="listitem"><a href="#" data-city="Cairo, Egypt">Cairo, Egypt</a></li>
+                    <li role="listitem"><a href="#" data-city="Beijing, China">Beijing, China</a></li>
+                    <li role="listitem"><a href="#" data-city="Mumbai, India">Mumbai, India</a></li>
+                    <li role="listitem"><a href="#" data-city="Osaka, Japan">Osaka, Japan</a></li>
                 </ul>
             </div>
         </section>
 
-        <section class="right-container">
+        <section class="time-container">
             <div id="clock">
                 <div class="hour" id="hour-1">I</div>
                 <div class="hour" id="hour-2">II</div>
