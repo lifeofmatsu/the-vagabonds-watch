@@ -16,3 +16,15 @@
     --highlight-high: rgb(82, 79, 103);
     }
     
+    header {
+        background-color: var(--surface);
+        color: var(--love);
+        width: 100%;    
+        font-size: large;
+        margin: 10px;
+        justify-content:center ;
+        display: inline-block;
+        }
+
+    
+        
