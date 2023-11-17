@@ -72,6 +72,7 @@ section div{
   
   /* Style the navigation links */
   .city-menu li a {
+    width: 40%;
     padding: 12px;
     text-decoration: none;
     color: var(--deep-purple);
