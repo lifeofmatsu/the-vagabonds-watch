@@ -86,6 +86,15 @@ li:hover {
     color: var(--text);
 }
 
+footer{
+    margin: 0 auto;
+    margin-bottom: 10px;
+    padding: 2.5rem;
+    text-align:center;
+    background-color: var(--overlay);
+    color: var(--iris);
+}
+
 @media only screen and (min-width: 601px) and (max-width: 1024px) {
 nav {
     flex-direction: column;
