@@ -60,32 +60,6 @@ section div{
     color: var(--gold);
 }
 
-li {
-    position: relative;
-    list-style-type: none;
-    padding-left: 20px; 
-    color: var(--iris);
-    margin-left: 20px;
-    margin: 10px 0px;
-}
-
-li::before {
-    content: '';
-    position: absolute;
-    left: 0;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 10px; 
-    height: 10px; 
-    background-color: var(--deep-purple); 
-    border-radius: 50%;
-    margin-right: 10px; 
-}
-
-li:hover {
-    color: var(--text);
-}
-
 footer{
     margin: 0 auto;
     margin-bottom: 10px;
