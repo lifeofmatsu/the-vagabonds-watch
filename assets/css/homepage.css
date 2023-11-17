@@ -82,12 +82,6 @@ section div{
     background-color: var(--iris);
   }
 
-  .vertical-line {
-    border-left: 1px solid var(--gold); /* Adjust the color as needed */
-    height: 100%;
-    margin-left: 10px; /* Adjust the distance between the list and the line as needed */
-}
-
 footer{
     margin: 0 auto;
     margin-bottom: 10px;
