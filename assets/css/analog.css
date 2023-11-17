@@ -18,8 +18,8 @@
 
 body {
     display:flex;
-    height: 100vh;
-    width:100%;
+    /* height: 100vh;
+    width:100%; */
     background-color: #7D1128;
     justify-content: center;
     align-items: center;
