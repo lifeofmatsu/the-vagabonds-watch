@@ -16,6 +16,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,300;0,400;0,500;1,300;1,400;1,500&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="./assets/css/reset.css" />
+    <link rel="stylesheet" href="./assets/css/analog.css">
     <link rel="stylesheet" href="./assets/css/homepage.css" />
     <!-- Tailwind framework for css -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -27,15 +28,13 @@
     <header>
         <section class="container">
             <nav class="nav-flex"> 
-                <h1>The Vagabond's Watch</h1>
+                <h1 class="title">The Vagabond's Watch</h1>
                 <a href="./index.html">Home</a>
                 <a href="./collections.html">Collection</a>
                 <a href="#profile"><img id="profile" src="" alt="Profile Icon" /></a>
             </nav>
         </section>
-    </header>
 
-    <main>
         <section class="container">
             <div>DARK MODE</div>
                 <label class="switch" title="change theme" aria-label="change theme">
@@ -43,50 +42,56 @@
                     <span class="toggle round"></span>
                 </label>
         </section>
-        <body onload="setDefaultCountry()">
-            <div id="container">
-                <div id="search">
-                    <!--city name-->
-                    <span style="position: relative; z-index: 24;">
-                        <input type="search" id="searchInp" placeholder="Enter City Name" onblur="closeSuggestBox();">
-                        <span style="position: absolute; top: 20px; left: 0px; z-index:25; visibility: hidden;" id="suggestBoxElement"></span>
-                    </span>
-        
-                    <!--country/postal code-->
-                    <select id="countrySelect"></select>
-                    <input id="postalcodeInput" name="postalcode" onblur="postalCodeLookup();" size="10" type="text">
-        
-                    <button  id="data" onclick="showData()">Search</button>
-                </div>
-                <div id="result">
-                    <div id="cityInfo"></div>
-                </div>
-                <div>
-                    <ul class="city-menu" id="top-cities" role="list">
-                        <!-- suggested cities are 10 largest in the world source: U.S. News & World Report -->
-                        <li role="listitem"><a href="#">Tokyo, Japan</a></li>
-                        <li role="listitem"><a href="#">Delhi, India</a></li>
-                        <li role="listitem"><a href="#">Shanghai, China</a></li>
-                        <li role="listitem"><a href="#">São Paulo, Brazil</a></li>
-                        <li role="listitem"><a href="#">Mexico City, Mexico</a></li>
-                        <li role="listitem"><a href="#">Dhaka, Bangladesh</a></li>
-                        <li role="listitem"><a href="#">Cairo, Egypt</a></li>
-                        <li role="listitem"><a href="#">Beijing, China</a></li>
-                        <li role="listitem"><a href="#">Mumbai, India</a></li>
-                        <li role="listitem"><a href="#">Osaka, Japan</a></li>
-                    </ul>
-                </div>
+    </header>
+
+    <main class="parent-container">
+        <section class="search-container">
+            <div id="search">
+                <input type="text" id="cityInput" placeholder="Enter City Name or Postal Code" list="suggestions">
+                <br> <!-- Line break to move the button below the input field -->
+                <button id="searchButton">Search</button>
+                <datalist id="suggestions">
+                    <!-- Suggestions will be populated here -->
+                </datalist>
             </div>
-        
-            <!--jsr class-->
-            <!-- <script type="text/javascript" src="./export/jsr_class.js"></script> -->
-            <!--geonames.js with my username-->
-            <script type="text/javascript" src="//api.geonames.org/export/geonamesData.js?username=ljnorton12"></script>
-            <!--script.js file-->
-            <script src="./assets/js/script.js"></script>
-        </body>
-                
+            <div>
+                <ul class="city-menu" id="top-cities" role="list">
+                    <li role="listitem"><a href="#" data-city="Tokyo, Japan">Tokyo, Japan</a></li>
+                    <li role="listitem"><a href="#" data-city="Delhi, India">Delhi, India</a></li>
+                    <li role="listitem"><a href="#" data-city="Shanghai, China">Shanghai, China</a></li>
+                    <li role="listitem"><a href="#" data-city="São Paulo, Brazil">São Paulo, Brazil</a></li>
+                    <li role="listitem"><a href="#" data-city="Mexico City, Mexico">Mexico City, Mexico</a></li>
+                    <li role="listitem"><a href="#" data-city="Dhaka, Bangladesh">Dhaka, Bangladesh</a></li>
+                    <li role="listitem"><a href="#" data-city="Cairo, Egypt">Cairo, Egypt</a></li>
+                    <li role="listitem"><a href="#" data-city="Beijing, China">Beijing, China</a></li>
+                    <li role="listitem"><a href="#" data-city="Mumbai, India">Mumbai, India</a></li>
+                    <li role="listitem"><a href="#" data-city="Osaka, Japan">Osaka, Japan</a></li>
+                </ul>
             </div>
+        </section>
+
+        <section class="time-container">
+            <div id="clock">
+                <div class="hour" id="hour-1">I</div>
+                <div class="hour" id="hour-2">II</div>
+                <div class="hour" id="hour-3">III</div>
+                <div class="hour" id="hour-4">IV</div>
+                <div class="hour" id="hour-5">V</div>
+                <div class="hour" id="hour-6">VI</div>
+                <div class="hour" id="hour-7">VII</div>
+                <div class="hour" id="hour-8">VIII</div>
+                <div class="hour" id="hour-9">IX</div>
+                <div class="hour" id="hour-10">X</div>
+                <div class="hour" id="hour-11">XI</div>
+                <div class="hour" id="hour-12">XII</div>
+                <div id="hour-hand" class="hand"></div>
+                <div id="minute-hand" class="hand"></div>
+                <div id="second-hand" class="hand"></div>
+            </div>
+              
+              <!-- Elements for digital time and city-country information -->
+            <div id="digitalTime"></div>
+            <div id="cityCountry"></div>
         </section>
     </main>
 
@@ -94,12 +99,14 @@
         <div> thank you for visiting our page! it means a lot 💜 </div>
 
     </footer>
+
     <!-- Jquery -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <!-- DayJS -->
     <script src="https://cdn.jsdelivr.net/npm/dayjs@1.11.3/dayjs.min.js"
     integrity="sha256-iu/zLUB+QgISXBLCW/mcDi/rnf4m4uEDO0wauy76x7U=" crossorigin="anonymous">
     </script>
+    <script src="./assets/js/analog.js"></script>
     <script src="./assets/js/script.js"></script>
 </body>
 </html>
