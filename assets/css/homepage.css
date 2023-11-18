@@ -21,8 +21,8 @@ nav {
     display: flex;
     align-items: center;
     padding: 10px;
-    background-color: var(--base);
-    box-shadow: 0 5px 5px -5px var(--love);
+    background-color: var(--overlay);
+    box-shadow: 0 5px 5px -5px var(--deep-purple);
     justify-content: space-evenly;
 
 }
@@ -32,38 +32,50 @@ nav h1 {
     margin: 0 10px;
     padding: 10px;
     text-decoration: underline;
-    color: var(--love);
+    color: var(--deep-purple);
     padding-right: 300px;
     margin-left: -50px;
+}
+nav h1:hover{
+    color: var(--foam);
 }
 nav a {
     display: flex;
     text-decoration: underline;
-    color: var(--love);
+    color: var(--deep-purple);
 }
 
 nav a:hover {
-    color: var(--text);
+    color: var(--foam);
 }
 
 header {
-    background-color: var(--base);
+    background-color: var(--overlay);
     color: var(--love);
     padding: 10px;
 }
 
 main {
-    background-color: var(--base);
+    background-color: var(--overlay);
     padding: 20px;
 }
 
-section div{
-    color: var(--gold);
+.container{
+    color: var(--foam);
 }
 
+.search-container{
+color: var(--deep-purple);
+background-color: var(--overlay);
+}
+
+.right-container{
+color: var(--foam);
+}
 
 /* Style the navigation menu */
 .city-menu {
+    width: 20%;
     list-style-type: none;
     padding: 0;
     margin: 0;
@@ -87,7 +99,7 @@ footer{
     margin-bottom: 10px;
     padding: 2.5rem;
     text-align:center;
-    background-color: var(--overlay);
+    background-color: var(--base);
     color: var(--iris);
 }
 

@@ -16,6 +16,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,300;0,400;0,500;1,300;1,400;1,500&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="./assets/css/reset.css" />
+    <link rel="stylesheet" href="./assets/css/analog.css">
     <link rel="stylesheet" href="./assets/css/homepage.css" />
     <!-- Tailwind framework for css -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -27,7 +28,7 @@
     <header>
         <section class="container">
             <nav class="nav-flex"> 
-                <h1>The Vagabond's Watch</h1>
+                <h1 class="title">The Vagabond's Watch</h1>
                 <a href="./index.html">Home</a>
                 <a href="./collections.html">Collection</a>
                 <a href="#profile"><img id="profile" src="" alt="Profile Icon" /></a>
@@ -45,8 +46,8 @@
 
     <main>
         <section class="left-container">
-            <div id="search">
-                <input type="text" id="cityInput" placeholder="Enter City Name or Postal Code">
+            <div id="search" class="search-container">
+                <input class="search-bar" type="text" id="cityInput" placeholder="Enter City Name or Postal Code">
                 <br> <!-- Line break to move the button below the input field -->
                 <button onclick="fetchCityTime()">Search</button>
             </div>
