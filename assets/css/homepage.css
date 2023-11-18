@@ -138,15 +138,7 @@ main {
     padding: 0;
     /* Remove padding */
     margin: 0;
-<<<<<<< HEAD
-    
-  }
-  
-  /* Style the navigation links */
-  .city-menu li a {
-    width: 40%;
-    padding: 12px;
-=======
+
     /* Remove margin */
 }
 
@@ -156,7 +148,6 @@ main {
     /* Padding for each list item */
     text-align: left;
     /* Align text to left */
->>>>>>> 01cdd65cef2e66209335b008291bb7126df8ad14
     text-decoration: none;
     color: var(--deep-purple);
 }
@@ -170,7 +161,7 @@ footer {
     margin-bottom: 10px;
     padding: 2.5rem;
     text-align: center;
-    background-color: var(--base);
+    background-color: var(--surface);
     color: var(--iris);
 }
 
