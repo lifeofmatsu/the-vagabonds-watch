@@ -1,4 +1,4 @@
-:root{
+:root {
     --base: rgb(25, 23, 36);
     --surface: rgb(31, 29, 46);
     --overlay: rgb(38, 35, 58);
@@ -14,114 +14,197 @@
     --highlight-low: rgb(33, 32, 46);
     --highlight-med: rgb(64, 61, 82);
     --highlight-high: rgb(82, 79, 103);
-    --deep-purple:rgb(175, 75, 179);
+    --deep-purple: rgb(175, 75, 179);
 }
 
 nav {
     display: flex;
     align-items: center;
     padding: 10px;
-    background-color: var(--base);
-    box-shadow: 0 5px 5px -5px var(--love);
+    background-color: var(--overlay);
+    box-shadow: 0 5px 5px -5px var(--deep-purple);
     justify-content: space-evenly;
 
 }
 
-nav h1 {    
+nav h1 {
     display: flex;
     margin: 0 10px;
     padding: 10px;
     text-decoration: underline;
-    color: var(--love);
+    color: var(--deep-purple);
     padding-right: 300px;
     margin-left: -50px;
 }
+
+nav h1:hover {
+    color: var(--foam);
+}
+
 nav a {
     display: flex;
     text-decoration: underline;
-    color: var(--love);
+    color: var(--deep-purple);
 }
 
 nav a:hover {
-    color: var(--text);
+    color: var(--foam);
 }
 
 header {
-    background-color: var(--base);
+    background-color: var(--overlay);
     color: var(--love);
     padding: 10px;
 }
 
 main {
-    background-color: var(--base);
+    background-color: var(--overlay);
     padding: 20px;
 }
 
-section div{
-    color: var(--gold);
+.container {
+    color: var(--foam);
 }
 
+.search-container {
+    color: var(--deep-purple);
+    background-color: var(--overlay);
+    flex: 1;
+    /* Take up half the width of the parent container */
+}
+
+/* Parent container that holds both the left and right containers */
+.parent-container {
+    display: flex;
+    /* Enable flexbox */
+}
+
+.time-container {
+    color: var(--foam);
+    flex: 1;
+    /* Take up half the width of the parent container */
+}
+
+/* Style for the input field */
+#cityInput {
+    width: 100%;
+    /* Full width */
+    font-size: 16px;
+    /* Increase font size */
+    padding: 12px 20px;
+    /* Add some padding */
+    margin: 8px 0;
+    /* Add some margin */
+    display: inline-block;
+    /* Display as inline-block */
+    border: 1px solid #ccc;
+    /* Border color */
+    border-radius: 4px;
+    /* Rounded borders */
+    box-sizing: border-box;
+    /* Box sizing to avoid padding issues */
+}
+
+
+/* Style for the search button */
+#searchButton {
+    width: 100%;
+    /* Full width */
+    background-color: #4CAF50;
+    /* Green background */
+    color: white;
+    /* White text */
+    padding: 14px 20px;
+    /* Padding */
+    margin: 8px 0;
+    /* Margin */
+    border: none;
+    /* No border */
+    border-radius: 4px;
+    /* Rounded borders */
+    cursor: pointer;
+    /* Pointer cursor on hover */
+}
+
+#searchButton:hover {
+    background-color: #45a049;
+    /* Darker shade of green on hover */
+}
 
 /* Style the navigation menu */
 .city-menu {
     list-style-type: none;
+    /* Remove bullet points */
     padding: 0;
+    /* Remove padding */
     margin: 0;
+<<<<<<< HEAD
     
   }
   
   /* Style the navigation links */
   .city-menu li a {
+    width: 40%;
     padding: 12px;
+=======
+    /* Remove margin */
+}
+
+/* Style the navigation links */
+.city-menu li {
+    padding: 8px;
+    /* Padding for each list item */
+    text-align: left;
+    /* Align text to left */
+>>>>>>> 01cdd65cef2e66209335b008291bb7126df8ad14
     text-decoration: none;
     color: var(--deep-purple);
-    display: block
-  }
-  
-  .city-menu li a:hover {
-    background-color: var(--iris);
-  }
+}
 
-footer{
+.city-menu li:hover {
+    background-color: var(--iris);
+}
+
+footer {
     margin: 0 auto;
     margin-bottom: 10px;
     padding: 2.5rem;
-    text-align:center;
-    background-color: var(--overlay);
+    text-align: center;
+    background-color: var(--base);
     color: var(--iris);
 }
 
 @media only screen and (min-width: 601px) and (max-width: 1024px) {
-nav {
-    flex-direction: column;
-    align-items: stretch;
-}
+    nav {
+        flex-direction: column;
+        align-items: stretch;
+    }
 
-nav h1 {
-    margin: 10px 0;
-    padding-right: 0;
-    margin-left: 0;
-}
+    nav h1 {
+        margin: 10px 0;
+        padding-right: 0;
+        margin-left: 0;
+    }
 
-nav a {
-    margin: 10px 0;
-}
+    nav a {
+        margin: 10px 0;
+    }
 }
 
 @media only screen and (max-width: 600px) {
-nav {
-    flex-direction: column;
-    align-items: stretch;
-}
+    nav {
+        flex-direction: column;
+        align-items: stretch;
+    }
 
-nav h1 {
-    margin: 10px 0;
-    padding-right: 0;
-    margin-left: 0;
-}
+    nav h1 {
+        margin: 10px 0;
+        padding-right: 0;
+        margin-left: 0;
+    }
 
-nav a {
-    margin: 10px 0;
-}
+    nav a {
+        margin: 10px 0;
+    }
 }
 
