@@ -24,7 +24,6 @@ nav {
     background-color: var(--overlay);
     box-shadow: 0 5px 5px -5px var(--deep-purple);
     justify-content: space-evenly;
-
 }
 
 nav h1 {
@@ -103,8 +102,14 @@ main {
     /* Rounded borders */
     box-sizing: border-box;
     /* Box sizing to avoid padding issues */
+    transition: width 0.4s ease-in-out;
+    /* Add smooth transition for the width change */
 }
 
+#cityInput:focus {
+    width: 300px;
+    /* Adjust the width to expand on focus */
+}
 
 /* Style for the search button */
 #searchButton {
@@ -124,6 +129,8 @@ main {
     /* Rounded borders */
     cursor: pointer;
     /* Pointer cursor on hover */
+
+    transition: background-color 0.3s ease, transform 0.2s ease-out;
 }
 
 #searchButton:hover {
@@ -138,15 +145,12 @@ main {
     padding: 0;
     /* Remove padding */
     margin: 0;
-<<<<<<< HEAD
-    
-  }
-  
-  /* Style the navigation links */
-  .city-menu li a {
+}
+
+/* Style the navigation links */
+.city-menu li a {
     width: 40%;
     padding: 12px;
-=======
     /* Remove margin */
 }
 
@@ -156,7 +160,6 @@ main {
     /* Padding for each list item */
     text-align: left;
     /* Align text to left */
->>>>>>> 01cdd65cef2e66209335b008291bb7126df8ad14
     text-decoration: none;
     color: var(--deep-purple);
 }
