@@ -88,6 +88,8 @@ main {
 #cityInput {
     width: 100%;
     /* Full width */
+    max-width: 65%;
+    /* set max width so search bar is not too big */
     font-size: 16px;
     /* Increase font size */
     padding: 12px 20px;
@@ -170,6 +172,7 @@ main {
 
 /* Style the navigation menu */
 .city-menu {
+    max-width:65%;
     list-style-type: none;
     /* Remove bullet points */
     padding: 0;
