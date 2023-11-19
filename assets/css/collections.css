@@ -36,6 +36,7 @@ nav h1 {
     padding-right: 300px;
     margin-left: -50px;
 }
+
 nav h1:hover{
     color: var(--foam);
 }
@@ -55,20 +56,23 @@ header {
     padding: 10px;
 }
 
-main {
-    background-color: var(--overlay);
-    padding: 20px;
-}
-
 .container{
     color: var(--iris);
 }
 
-footer{
+.main{
+    background-color: var(--overlay);
+}
+
+.container {
+    color: var(--iris);
+}
+
+footer {
     margin: 0 auto;
     margin-bottom: 10px;
     padding: 2.5rem;
-    text-align:center;
-    background-color: var(--base);
+    text-align: center;
+    background-color: var(--surface);
     color: var(--iris);
 }

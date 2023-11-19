@@ -1,4 +1,4 @@
-:root{
+:root {
     --base: rgb(25, 23, 36);
     --surface: rgb(31, 29, 46);
     --overlay: rgb(38, 35, 58);
@@ -14,7 +14,7 @@
     --highlight-low: rgb(33, 32, 46);
     --highlight-med: rgb(64, 61, 82);
     --highlight-high: rgb(82, 79, 103);
-    --deep-purple:rgb(175, 75, 179);
+    --deep-purple: rgb(175, 75, 179);
 }
 
 nav {
@@ -24,10 +24,9 @@ nav {
     background-color: var(--overlay);
     box-shadow: 0 5px 5px -5px var(--deep-purple);
     justify-content: space-evenly;
-
 }
 
-nav h1 {    
+nav h1 {
     display: flex;
     margin: 0 10px;
     padding: 10px;
@@ -36,9 +35,11 @@ nav h1 {
     padding-right: 300px;
     margin-left: -50px;
 }
-nav h1:hover{
+
+nav h1:hover {
     color: var(--foam);
 }
+
 nav a {
     display: flex;
     text-decoration: underline;
@@ -60,80 +61,177 @@ main {
     padding: 20px;
 }
 
-.container{
+.container {
     color: var(--foam);
 }
 
-.search-container{
-color: var(--deep-purple);
-background-color: var(--overlay);
+.search-container {
+    color: var(--deep-purple);
+    background-color: var(--overlay);
+    flex: 1;
+    /* Take up half the width of the parent container */
 }
 
-.right-container{
-color: var(--foam);
+/* Parent container that holds both the left and right containers */
+.parent-container {
+    display: flex;
+    /* Enable flexbox */
 }
+
+.time-container {
+    color: var(--foam);
+    flex: 1;
+    /* Take up half the width of the parent container */
+}
+
+/* Style for the input field */
+#cityInput {
+    width: 100%;
+    /* Full width */
+    font-size: 16px;
+    /* Increase font size */
+    padding: 12px 20px;
+    /* Add some padding */
+    margin: 8px 0;
+    /* Add some margin */
+    display: inline-block;
+    /* Display as inline-block */
+    border: 1px solid #ccc;
+    /* Border color */
+    border-radius: 4px;
+    /* Rounded borders */
+    box-sizing: border-box;
+    /* Box sizing to avoid padding issues */
+    transition: width 0.4s ease-in-out;
+    /* Add smooth transition for the width change */
+}
+
+#cityInput:focus {
+    width: 300px;
+    /* Adjust the width to expand on focus */
+}
+
+/* Updated style for the search button */
+#searchButton {
+    width: 80%; /* Adjust width as needed */
+    max-width: 200px; /* Limit maximum width */
+    background-color: var(--pine);
+    color: var(--text);
+    padding: 10px 15px; /* Adjust padding for size */
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease-out;
+    position: relative;
+    overflow: hidden;
+    font-size: 14px; /* Adjust font size */
+}
+
+#searchButton:hover {
+    background-color: var(--foam);
+    /* Darker shade on hover */
+}
+
+#searchButton::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 300%;
+    height: 300%;
+    background-color: var(--text);
+    transition: all 0.6s ease;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 0;
+    opacity: 0;
+}
+
+#searchButton:hover::before {
+    width: 0;
+    height: 0;
+    opacity: 0.8;
+}
+
+#searchButton span {
+    z-index: 1;
+    position: relative;
+}
+
+/* Click animation effect */
+#searchButton:active::before {
+    width: 100%;
+    height: 100%;
+    opacity: 1;
+    transition: none;
+}
+
 
 /* Style the navigation menu */
 .city-menu {
-    width: 20%;
     list-style-type: none;
+    /* Remove bullet points */
     padding: 0;
+    /* Remove padding */
     margin: 0;
-    
-  }
-  
-  /* Style the navigation links */
-  .city-menu li a {
-    padding: 12px;
+    /* Remove margin */
+}
+
+/* Style the navigation links */
+.city-menu li {
+    padding: 8px;
+    /* Padding for each list item */
+    text-align: left;
+    /* Align text to left */
     text-decoration: none;
     color: var(--deep-purple);
-    display: block
-  }
-  
-  .city-menu li a:hover {
-    background-color: var(--iris);
-  }
+}
 
-footer{
+.city-menu li:hover {
+    background-color: var(--iris);
+}
+
+footer {
     margin: 0 auto;
     margin-bottom: 10px;
     padding: 2.5rem;
-    text-align:center;
-    background-color: var(--base);
+    text-align: center;
+    background-color: var(--surface);
     color: var(--iris);
 }
 
 @media only screen and (min-width: 601px) and (max-width: 1024px) {
-nav {
-    flex-direction: column;
-    align-items: stretch;
-}
+    nav {
+        flex-direction: column;
+        align-items: stretch;
+    }
 
-nav h1 {
-    margin: 10px 0;
-    padding-right: 0;
-    margin-left: 0;
-}
+    nav h1 {
+        margin: 10px 0;
+        padding-right: 0;
+        margin-left: 0;
+    }
 
-nav a {
-    margin: 10px 0;
-}
+    nav a {
+        margin: 10px 0;
+    }
 }
 
 @media only screen and (max-width: 600px) {
-nav {
-    flex-direction: column;
-    align-items: stretch;
-}
+    nav {
+        flex-direction: column;
+        align-items: stretch;
+    }
 
-nav h1 {
-    margin: 10px 0;
-    padding-right: 0;
-    margin-left: 0;
-}
+    nav h1 {
+        margin: 10px 0;
+        padding-right: 0;
+        margin-left: 0;
+    }
 
-nav a {
-    margin: 10px 0;
-}
+    nav a {
+        margin: 10px 0;
+    }
 }
 
