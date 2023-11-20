@@ -26,7 +26,7 @@ Upon revisiting the website, all user-specific data, including search history, i
 
 Screenshot: 
 
-Link To Github: [
+Link To Github: 
 
 https://github.com/lifeofmatsu/the-vagabonds-watch
 
