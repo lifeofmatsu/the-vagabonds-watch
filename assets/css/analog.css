@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 :root {
     --base: rgb(25, 23, 36);
     --surface: rgb(31, 29, 46);
@@ -17,8 +17,6 @@
     --highlight-high: rgb(82, 79, 103);
 }
 
-
-=======
 #clock {
     position: relative;
     width: 200px;
@@ -30,7 +28,7 @@
     align-items: center;
     justify-content: center;
 }
->>>>>>> 01cdd65cef2e66209335b008291bb7126df8ad14
+
 
 #digitalTime, #cityCountry {
     text-align: center;
