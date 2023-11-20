@@ -10,24 +10,29 @@ As a Coding Bootcamp student, I want to easily look up the time and time zone of
 
 ## Usage
 
-#Homepage Interface: Upon opening the site, users are greeted with a clear homepage displaying a search bar dedicated to entering specific locations.
+Homepage Interface: Upon opening the site, users are greeted with a clear homepage displaying a search bar dedicated to entering specific locations.
 
-#Search Functionality:
+Search Functionality:
  Upon entering a location in the search bar, users should be seamlessly redirected to a new page displaying detailed time and time zone information for the specified location.
 
-#Real-Time Updates: 
+Real-Time Updates: 
 The displayed time should be continuously updated in real-time to reflect accurate information.
 
-#Search History: 
+Search History: 
 Users can access a collection of their searched time zones, enabling them to view their search history.
 
-#User Data Security: 
+User Data Security: 
 Upon revisiting the website, all user-specific data, including search history, is securely stored and accessible to users.
 
 Screenshot: 
 
-Link To Github: 
+Link To Github: [
+
+https://github.com/lifeofmatsu/the-vagabonds-watch
+
 Link to Pages:
+
+https://lifeofmatsu.github.io/the-vagabonds-watch/
 
 ## Credits
 
