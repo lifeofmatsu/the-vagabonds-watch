@@ -14,15 +14,15 @@
     --highlight-low: rgb(33, 32, 46);
     --highlight-med: rgb(64, 61, 82);
     --highlight-high: rgb(82, 79, 103);
-    --deep-purple:rgb(96, 47, 107);
+    --deep-purple:rgb(175, 75, 179);
 }
 
 nav {
     display: flex;
     align-items: center;
     padding: 10px;
-    background-color: var(--base);
-    box-shadow: 0 5px 5px -5px var(--love);
+    background-color: var(--overlay);
+    box-shadow: 0 5px 5px -5px var(--iris);
     justify-content: space-evenly;
 
 }
@@ -32,22 +32,47 @@ nav h1 {
     margin: 0 10px;
     padding: 10px;
     text-decoration: underline;
-    color: var(--love);
+    color: var(--iris);
     padding-right: 300px;
     margin-left: -50px;
+}
+
+nav h1:hover{
+    color: var(--foam);
 }
 nav a {
     display: flex;
     text-decoration: underline;
-    color: var(--love);
+    color: var(--iris);
 }
 
 nav a:hover {
-    color: var(--text);
+    color: var(--foam);
 }
 
 header {
-    background-color: var(--base);
+    background-color: var(--overlay);
     color: var(--love);
     padding: 10px;
+}
+
+.container{
+    color: var(--iris);
+}
+
+.main{
+    background-color: var(--overlay);
+}
+
+.container {
+    color: var(--iris);
+}
+
+footer {
+    margin: 0 auto;
+    margin-bottom: 10px;
+    padding: 2.5rem;
+    text-align: center;
+    background-color: var(--surface);
+    color: var(--iris);
 }
