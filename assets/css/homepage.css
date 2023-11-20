@@ -88,6 +88,8 @@ main {
 #cityInput {
     width: 100%;
     /* Full width */
+    max-width: 65%;
+    /* set max width so search bar is not too big */
     font-size: 16px;
     /* Increase font size */
     padding: 12px 20px;
@@ -170,17 +172,12 @@ main {
 
 /* Style the navigation menu */
 .city-menu {
+    max-width:65%;
     list-style-type: none;
     /* Remove bullet points */
     padding: 0;
     /* Remove padding */
     margin: 0;
-}
-
-/* Style the navigation links */
-.city-menu li a {
-    width: 40%;
-    padding: 12px;
     /* Remove margin */
 }
 
@@ -203,7 +200,7 @@ footer {
     margin-bottom: 10px;
     padding: 2.5rem;
     text-align: center;
-    background-color: var(--base);
+    background-color: var(--surface);
     color: var(--iris);
 }
 
