@@ -1,24 +1,43 @@
-# the-vagabonds-watch
-UCSD Coding Bootcamp Project 1
+# The Vagabonds Watch
 
-# USER STORY
-As A Coding Bootcamp student
-I WANT to be able to easily look up the time and time zone of a specific location
-and have the ability to view a history of locations I've previously searched for.
+## Description
 
-# ACCEPTANCE CRITERIA
+This project is part of the UCSD Coding Bootcamp and aims to provide a convenient tool for users to look up the time and time zone of specific locations. Additionally, it allows users to view a history of previously searched locations.
 
-WHEN I open the site, 
-THEN I see a clear homepage that displays a search bar for entering a specific location
+## User Story 
 
-WHEN entering a location in the search bar 
-THEN I should be redirected to a new page displaying the time and time zone information for the specific location.
+As a Coding Bootcamp student, I want to easily look up the time and time zone of a specific location and have the ability to view a history of locations I've previously searched for.
 
-WHEN I view displayed times and location
-THEN the displayed time should be updated in real time
+## Usage
 
-When I view a collection of my time zones
-THEN the site should mantain a history of the locations i've searched for
+#Homepage Interface: Upon opening the site, users are greeted with a clear homepage displaying a search bar dedicated to entering specific locations.
 
-WHEN I revisit the website 
-THEN Any user-specific data, such as search history, should be securely stored and accessible only to the authenticated user
+#Search Functionality:
+ Upon entering a location in the search bar, users should be seamlessly redirected to a new page displaying detailed time and time zone information for the specified location.
+
+#Real-Time Updates: 
+The displayed time should be continuously updated in real-time to reflect accurate information.
+
+#Search History: 
+Users can access a collection of their searched time zones, enabling them to view their search history.
+
+#User Data Security: 
+Upon revisiting the website, all user-specific data, including search history, is securely stored and accessible to users.
+
+Screenshot: 
+
+Link To Github: 
+Link to Pages:
+
+## Credits
+
+This is a collaborative effort brought to you by Jus, Alan, And Lucas. You can find them on Github Here:
+
+Jus Ferrel: https://github.com/lifeofmatsu
+
+Alan Ruffo: https://github.com/Aslan-The-Lion
+
+Lucas Norton: https://github.com/ljnorton12
+
+
+
