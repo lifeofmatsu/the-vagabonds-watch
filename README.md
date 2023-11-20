@@ -21,26 +21,16 @@ The displayed time should be continuously updated in real-time to reflect accura
 Search History: 
 Users can access a collection of their searched time zones, enabling them to view their search history.
 
-<<<<<<< HEAD
-User Data Security: 
-=======
-#User Data Stored Locally: 
->>>>>>> feature-navigation
+User Data Locally Stored: 
 Upon revisiting the website, all user-specific data, including search history, is securely stored and accessible to users.
 
 Screenshot: 
 
-<<<<<<< HEAD
 Link To Github: 
 
 https://github.com/lifeofmatsu/the-vagabonds-watch
 
 Link to Pages:
-=======
-Link To Github: https://github.com/lifeofmatsu/the-vagabonds-watch
-
-Link to Deployed Web Page: https://lifeofmatsu.github.io/the-vagabonds-watch/
->>>>>>> feature-navigation
 
 https://lifeofmatsu.github.io/the-vagabonds-watch/
 
