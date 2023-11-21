@@ -24,7 +24,7 @@ Users can access a collection of their searched time zones, enabling them to vie
 User Data Locally Stored: 
 Upon revisiting the website, all user-specific data, including search history, is securely stored and accessible to users.
 
-Screenshot: ![image](https://github.com/lifeofmatsu/the-vagabonds-watch/assets/122134252/18df85e3-579f-4b93-bf08-363ce1e0b260)
+ ![image](https://github.com/lifeofmatsu/the-vagabonds-watch/assets/122134252/18df85e3-579f-4b93-bf08-363ce1e0b260)
 
 Link To Github: 
 
