@@ -16,7 +16,10 @@
     --highlight-high: rgb(82, 79, 103);
     --deep-purple: rgb(175, 75, 179);
 }
-
+body{
+    background-color: var(--overlay);
+    height: 100vh;
+}
 nav {
     display: flex;
     align-items: center;
@@ -201,6 +204,7 @@ main {
 }
 
 footer {
+    width: fit-content;
     margin: 0 auto;
     margin-bottom: 10px;
     padding: 2.5rem;

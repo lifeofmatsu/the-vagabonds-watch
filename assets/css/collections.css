@@ -55,7 +55,9 @@ header {
     color: var(--love);
     padding: 10px;
 }
-
+.parent-container{
+    color: var(--iris);
+}
 .container{
     color: var(--iris);
 }
