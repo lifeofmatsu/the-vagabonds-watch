@@ -87,6 +87,12 @@ main {
     /* Take up half the width of the parent container */
 }
 
+
+.collection-button{
+text-align: center;
+margin-top: 10px;
+}
+
 /* Style for the input field */
 #cityInput {
     width: 100%;
