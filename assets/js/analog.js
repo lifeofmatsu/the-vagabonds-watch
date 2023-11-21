@@ -1,8 +1,34 @@
 let globalTime = new Date(); // Global variable to hold the current time of the searched city
 let clockInterval; // Global variable for the clock interval
+let currentCity = '';
+
+
+async function saveCity() {
+    // city = currentCity; // This line seems to be unnecessary since currentCity is already a global variable
+
+    console.log(currentCity, "FDHJGFVDSFHJHFDVJDFBJRHBVSDJFBHRBJ!!!!!!!");
+
+    let storedCities = localStorage.getItem('savedCities'); // Changed to 'let' for local scope
+
+    console.log(storedCities, "STORED DFOHSDFJGKKZBVJDSHTKJGLRASDL");
+
+    let savedCities = JSON.parse(storedCities);
+
+    if (!savedCities) {
+        savedCities = [];
+    };
+
+    savedCities.push(currentCity); // Changed from appendChild to push
+
+    console.log(savedCities, "SAVEDONES");
+
+    localStorage.setItem('savedCities', JSON.stringify(savedCities));
+}
+
 
 // Function to handle city/time selection and display
 async function handleCitySelection(input) {
+
     console.log("handleCitySelection input:", input); // Debugging log
     const locationData = await fetchLocationData(input);
     console.log("Location data:", locationData); // Debugging log
@@ -10,6 +36,7 @@ async function handleCitySelection(input) {
     if (locationData && locationData.city) {
         await fetchCityTime(locationData.city); // Call fetchCityTime only if city name is available
         updateDigitalTimeAndCity(globalTime, locationData);
+        currentCity = input;
     } else {
         console.error('Location data not found for the input:', input);
         // Handle UI update for error or no data
@@ -117,6 +144,10 @@ document.getElementById('searchButton').addEventListener('click', () => {
     }
 });
 
+document.getElementById('saveButton').addEventListener('click', () => {
+    saveCity();
+});
+
 // Event listener for 'Enter' key in the search input
 document.getElementById('cityInput').addEventListener('keypress', (event) => {
     if (event.key === 'Enter') {
@@ -204,6 +235,7 @@ document.getElementById('addToCollectionBtn').addEventListener('click', function
 
 
 startClocks();
+
 
 
 

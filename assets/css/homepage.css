@@ -169,6 +169,11 @@ main {
     transition: none;
 }
 
+#centerbutton {
+    position: relative; 
+    flex: flex;
+    
+}
 
 /* Style the navigation menu */
 .city-menu {

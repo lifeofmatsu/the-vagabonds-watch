@@ -89,3 +89,62 @@ footer {
     padding: 10px;
     text-align: center;
 }
+
+
+
+/* Updated style for the search buttonStyled */
+#buttonStyled {
+    width: 80%; /* Adjust width as needed */
+    max-width: 200px; /* Limit maximum width */
+    background-color: var(--pine);
+    color: var(--text);
+    padding: 10px 15px; /* Adjust padding for size */
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease-out;
+    position: relative;
+    overflow: hidden;
+    font-size: 14px; /* Adjust font size */
+}
+
+#buttonStyled:hover {
+    background-color: var(--foam);
+    /* Darker shade on hover */
+}
+
+#buttonStyled::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 300%;
+    height: 300%;
+    background-color: var(--text);
+    transition: all 0.6s ease;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 0;
+    opacity: 0;
+}
+
+#buttonStyled:hover::before {
+    width: 0;
+    height: 0;
+    opacity: 0.8;
+}
+
+#buttonStyled span {
+    z-index: 1;
+    position: relative;
+}
+
+/* Click animation effect */
+#buttonStyled:active::before {
+    width: 100%;
+    height: 100%;
+    opacity: 1;
+    transition: none;
+}
+

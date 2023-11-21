@@ -50,3 +50,4 @@ function displayCityInfo(cityData, timezoneData) {
         cityInfoElement.innerHTML = "<p>No information found for the entered city.</p>";
     }
 }
+
