@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     
     async function fetchCityTime(city, listItem) {
-        const apiKey = 'LJFoOzyDdkNHaa49NCVDxQ==XdhyzQc0aGZxeKx4'; // Replace with your actual API key
+        const apiKey = 'LJFoOzyDdkNHaa49NCVDxQ==XdhyzQc0aGZxeKx4'; 
         const url = `https://api.api-ninjas.com/v1/worldtime?city=${encodeURIComponent(city)}`;
     
         try {
