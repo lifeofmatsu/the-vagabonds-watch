@@ -18,18 +18,24 @@
     --deep-purple: rgb(175, 75, 179);
 }
 
-body{
-    background-color: var(--overlay);
-    height: 100vh;
+html {
+    font-size: 62.5%;
+}
+
+body {
+    background-color: #c4c4c4;
+    font-family: 'Raleway', sans-serif;
+    font-size: 2.0rem;
+    line-height: 1.5;
 }
 
 nav {
+    width: 100%; /* Ensure nav takes up the full width */
     display: flex;
     align-items: center;
-    padding: 10px;
-    background-color: var(--overlay);
+    justify-content: space-evenly; /* Adjust as per design */
+    /* background-color: var(--overlay); */
     box-shadow: 0 5px 5px -5px var(--deep-purple);
-    justify-content: space-evenly;
 }
 
 nav h1 {
@@ -57,29 +63,37 @@ nav a:hover {
 }
 
 header {
-    background-color: var(--overlay);
+    width: 100%;
+    background-color: #829b94;
     color: var(--love);
-    padding: 10px;
+    margin: 0 auto;
+    display: block;
 }
 
+#profile-icon {
+    color: var(--overlay);
+    padding: none;
+}
 
 main {
-    background-color: var(--overlay);
+    /* background-color: var(--overlay); */
     padding: 20px;
 }
 
-.container {
-    color: var(--foam);
+.hcontainer {
+    width: 100%; 
+    max-width: 100%; 
+    padding: 0; 
+}
+
+.mcontainer {
+    display: flex;
 }
 
 .search-container {
     color: var(--deep-purple);
     background-color: var(--overlay);
     flex: 1;
-}
-
-.parent-container {
-    display: flex;
 }
 
 .time-container {
@@ -165,7 +179,6 @@ margin-top: 10px;
 #centerbutton {
     position: relative; 
     flex: flex;
-    
 }
 
 .city-menu {
@@ -196,33 +209,30 @@ footer {
     color: var(--iris);
 }
 
+/* Responsive adjustments for medium devices */
 @media only screen and (min-width: 601px) and (max-width: 1024px) {
     nav {
+        width: 100%;
         flex-direction: column;
         align-items: stretch;
     }
 
-    nav h1 {
+    nav h1, nav a {
         margin: 10px 0;
-        padding-right: 0;
-        margin-left: 0;
     }
-
-    nav a { margin: 10px 0; }
 }
 
+/* Responsive adjustments for small devices */
 @media only screen and (max-width: 600px) {
     nav {
+        width: 100%;
         flex-direction: column;
         align-items: stretch;
     }
 
-    nav h1 {
+    nav h1, nav a {
         margin: 10px 0;
-        padding-right: 0;
-        margin-left: 0;
     }
-
-    nav a { margin: 10px 0; }
 }
+
 
