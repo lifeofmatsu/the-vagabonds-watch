@@ -1,24 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <!-- fontawesome used for profil icon -->
+
+    <!-- profile icon (source: Fontawesome) -->
     <link
       rel="stylesheet"
       href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
       integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
       crossorigin="anonymous"
     />
-    <!-- 'Raleway' font sourced from Google Fonts api -->
+
+    <!-- webpage font 'Raleway' (source: Google Fonts API) -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,300;0,400;0,500;1,300;1,400;1,500&display=swap" rel="stylesheet" />
+
     <link rel="stylesheet" href="./assets/css/reset.css" />
     <link rel="stylesheet" href="./assets/css/analog.css">
     <link rel="stylesheet" href="./assets/css/homepage.css" />
-    <!-- Tailwind framework for css -->
+
+    <!-- CSS framework (source: Tailwind CSS) -->
     <script src="https://cdn.tailwindcss.com"></script>
     
     <title>Vagabond</title>
@@ -30,7 +35,7 @@
             <nav class="nav-flex"> 
                 <h1 class="title">The Vagabond's Watch</h1>
                 <a href="./index.html">Home</a>
-                <a href="./collections.html">Collection</a>
+                <a href="./collections.html">Collections</a>
                 <a href="#profile"><img id="profile" src="" alt="Profile Icon" /></a>
             </nav>
         </section>
@@ -47,24 +52,18 @@
     <main class="parent-container">
         <section class="search-container">
             <div id="search">
-                <input type="text" id="cityInput" placeholder="Enter City Name or Postal Code" list="suggestions">
-                <br> <!-- Line break to move the button below the input field -->
+                <input type="text" id="cityInput" placeholder="Enter City or Postal Code" list="suggestions">
+                <br> <!-- move search button below the input field -->
                 <button id="searchButton">Search</button>
                 <datalist id="suggestions">
-                    <!-- Suggestions will be populated here -->
+                    <!-- populate search autocomplete suggestions -->
                 </datalist>
             </div>
 
-        
-            <!--jsr class-->
-            <script type="text/javascript" src="/export/jsr_class.js"></script>
-            <!--geonames.js with my username-->
-            <script type="text/javascript" src="//api.geonames.org/export/geonamesData.js?username=ljnorton12"></script>
-        
-        </body>
-
             <div>
                 <ul class="city-menu" id="top-cities" role="list">
+                    <!-- user search suggestion list -->
+                    <!-- top ten populated cities of the world (source: US News & World Report) -->
                     <li role="listitem"><a href="#" data-city="Tokyo, Japan">Tokyo, Japan</a></li>
                     <li role="listitem"><a href="#" data-city="Delhi, India">Delhi, India</a></li>
                     <li role="listitem"><a href="#" data-city="Shanghai, China">Shanghai, China</a></li>
@@ -76,16 +75,6 @@
                     <li role="listitem"><a href="#" data-city="Mumbai, India">Mumbai, India</a></li>
                     <li role="listitem"><a href="#" data-city="Osaka, Japan">Osaka, Japan</a></li>
                 </ul>
-            </div>
-        
-            <!--jsr class-->
-            <script type="text/javascript" src="/export/jsr_class.js"></script>
-            <!--geonames.js with my username-->
-            <script type="text/javascript" src="//api.geonames.org/export/geonamesData.js?username=ljnorton12"></script>
-            <!--script.js file-->
-            <script src="script.js"></script>
-        </body>
-                
             </div>
         </section>
 
@@ -108,27 +97,21 @@
                 <div id="second-hand" class="hand"></div>
             </div>
               
-              <!-- Elements for digital time and city-country information -->
+            <!-- digital time and place elements -->
             <div id="digitalTime"></div>
             <div id="cityCountry"></div>
-            <div id="centerbutton" class="collection-button" >
-                <button id="saveButton">Add to collections </button>
-            </div>
+            <div id="centerbutton" class="collection-button"></div>
+
+            <button id="saveButton">+ Add to Collections</button>
         </section>
     </main>
 
     <footer>
-        <div> thank you for visiting our page! it means a lot 💜 </div>
-
+        <div> Thanks for visiting our page! It means a lot 💜</div>
     </footer>
 
-    <!-- Jquery -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <!-- DayJS -->
-    <script src="https://cdn.jsdelivr.net/npm/dayjs@1.11.3/dayjs.min.js"
-    integrity="sha256-iu/zLUB+QgISXBLCW/mcDi/rnf4m4uEDO0wauy76x7U=" crossorigin="anonymous">
-    </script>
     <script src="./assets/js/analog.js"></script>
     <script src="./assets/js/script.js"></script>
 </body>
+
 </html>

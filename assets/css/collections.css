@@ -1,3 +1,4 @@
+/* color palette (source: Rosé Pine) */
 :root{
     --base: rgb(25, 23, 36);
     --surface: rgb(31, 29, 46);
@@ -15,6 +16,11 @@
     --highlight-med: rgb(64, 61, 82);
     --highlight-high: rgb(82, 79, 103);
     --deep-purple:rgb(175, 75, 179);
+}
+
+body{
+    background-color: var(--overlay);
+    height: 100vh;
 }
 
 nav {
@@ -92,15 +98,11 @@ footer {
     text-align: center;
 }
 
-
-
-/* Updated style for the search buttonStyled */
 #buttonStyled {
-    width: 80%; /* Adjust width as needed */
-    max-width: 200px; /* Limit maximum width */
+    width: 80%; 
     background-color: var(--pine);
     color: var(--text);
-    padding: 10px 15px; /* Adjust padding for size */
+    padding: 10px 15px; 
     margin: 8px 0;
     border: none;
     border-radius: 4px;
@@ -108,12 +110,11 @@ footer {
     transition: background-color 0.3s ease, transform 0.2s ease-out;
     position: relative;
     overflow: hidden;
-    font-size: 14px; /* Adjust font size */
+    font-size: 14px; 
 }
 
 #buttonStyled:hover {
     background-color: var(--foam);
-    /* Darker shade on hover */
 }
 
 #buttonStyled::before {
@@ -142,7 +143,6 @@ footer {
     position: relative;
 }
 
-/* Click animation effect */
 #buttonStyled:active::before {
     width: 100%;
     height: 100%;

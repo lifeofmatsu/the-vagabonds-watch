@@ -1,3 +1,4 @@
+/* color palette (source: Rosé Pine) */
 :root {
     --base: rgb(25, 23, 36);
     --surface: rgb(31, 29, 46);
@@ -15,7 +16,6 @@
     --highlight-med: rgb(64, 61, 82);
     --highlight-high: rgb(82, 79, 103);
 }
-
 
 #clock {
     position: relative;
@@ -47,8 +47,8 @@
     transform-origin: center;
 }
   
-/* Adjust the initial rotation for each numeral */
-/* Start from -90 degrees for XII and add 30 degrees for each subsequent hour */
+/* adjust the initial rotation for each numeral */
+/* start from -90 degrees for XII and add 30 degrees for each subsequent hour */
 #hour-1 { 
     transform: rotate(-60deg) translate(85px) rotate(60deg); 
 }
@@ -121,5 +121,5 @@
     height: 70px;
     background-color: red;
     transform-origin: bottom;
-    animation: none; /* No CSS animation */
+    animation: none; /* animation handled by JS */
 }

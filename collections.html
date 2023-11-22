@@ -1,44 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous"/>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,300;0,400;0,500;1,300;1,400;1,500&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="./assets/css/reset.css" />
-    <link rel="stylesheet" href="./assets/css/homepage.css" />
-    <link rel="stylesheet" href="./assets/css/collections.css" />
-    <script src="https://cdn.tailwindcss.com"></script>
-    <title>Vagabond Collections</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+    <!-- profile icon (source: Font Awesome) -->
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+      integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
+      crossorigin="anonymous"
+    />
+
+    <!-- webpage font 'Raleway' (source: Google Fonts API) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,300;0,400;0,500;1,300;1,400;1,500&display=swap" rel="stylesheet" />
+
+    <link rel="stylesheet" href="./assets/css/reset.css" />
+    <link rel="stylesheet" href="./assets/css/analog.css">
+    <link rel="stylesheet" href="./assets/css/homepage.css" />
+
+    <!-- CSS framework (source: Tailwind CSS) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <title>Vagabond</title>
 </head>
+
 <body>
-    <header>
-        <section class="container">
-            <nav class="nav-flex"> 
-                <h1 class="title">The Vagabond's Watch</h1>
-                <a href="./index.html">Home</a>
-                <a href="./collections.html">Collection</a>
-                <a href="#profile"><img id="profile" src="" alt="Profile Icon" /></a>
-            </nav>
-        </section>
-    </header>
+    <header>
+        <section class="container">
+            <nav class="nav-flex"> 
+                <h1 class="title">The Vagabond's Watch</h1>
+                <a href="./index.html">Home</a>
+                <a href="./collections.html">Collections</a>
+                <a href="#profile"><img id="profile" src="" alt="Profile Icon" /></a>
+            </nav>
+        </section>
 
-    <main class="parent-container">
-        <section class="collection-container">
-            <h2>Your Saved Cities</h2>
-            <ul id="saved-cities" class="buttonStyled">
-                <!-- Saved Cities will be populated here -->
-            </ul>
-        </section>
-    </main>
+        <section class="container">
+            <div>DARK MODE</div>
+                <label class="switch" title="change theme" aria-label="change theme">
+                    <input type="checkbox" id="theme-toggle">
+                    <span class="toggle round"></span>
+                </label>
+        </section>
+    </header>
 
-    <footer>
-        <div> thank you for visiting our page! it means a lot 💜 </div>
-    </footer>
+    <main class="parent-container">
+        <section class="collection-container">
+            <h2>Your Saved Cities</h2>
+            <ul id="saved-cities" class="buttonStyled">
+            <!-- populate saved user searches -->
+            </ul>
+        </section>
+    </main>
 
-    <script src="./assets/js/collections.js"></script>
+    <footer>
+        <div> Thanks for visiting our page! It means a lot 💜</div>
+    </footer>
+
+    <script src="./assets/js/collections.js"></script>
 </body>
 </html>
