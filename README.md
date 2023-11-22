@@ -35,11 +35,9 @@ Upon revisiting the website, all user-specific data, including search history, i
 ## Demo
  ![image](https://github.com/lifeofmatsu/the-vagabonds-watch/assets/122134252/18df85e3-579f-4b93-bf08-363ce1e0b260)
 
-#### Github Repo: 
-https://github.com/lifeofmatsu/the-vagabonds-watch
+#### Github Repo: https://github.com/lifeofmatsu/the-vagabonds-watch
 
-#### Deployed Webpage:
-https://lifeofmatsu.github.io/the-vagabonds-watch/
+#### Deployed Webpage: https://lifeofmatsu.github.io/the-vagabonds-watch/
 
 
 ## APIs & Frameworks
