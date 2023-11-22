@@ -2,9 +2,9 @@
 ### by Jus Ferrell, Lucas Norton, & Alan Ruffo
 This is a collaborative effort brought to you by Jus, Alan, And Lucas. You can find them on Github Here:
 
-##### Jus Ferrell: https://github.com/lifeofmatsu
-##### Lucas Norton: https://github.com/ljnorton12
-##### Alan Ruffo: https://github.com/Aslan-The-Lion
+#### Jus Ferrell: https://github.com/lifeofmatsu
+#### Lucas Norton: https://github.com/ljnorton12
+#### Alan Ruffo: https://github.com/Aslan-The-Lion
 
 
 ## Description
@@ -43,42 +43,42 @@ https://lifeofmatsu.github.io/the-vagabonds-watch/
 
 
 ## APIs & Frameworks
-##### API Ninjas 
+#### API Ninjas 
 ###### World time data.
 ###### (https://api-ninjas.com/)
 
-##### Tailwind CSS
+#### Tailwind CSS
 ###### CSS framework for HTML.
 ###### (https://tailwindcss.com/)
 
-##### Teleport API 
+#### Teleport API 
 ###### Geolocation data.
 ###### (https://developers.teleport.org/)
 
 
 ## External Sources
-##### ChatGPT-4
+#### ChatGPT-4
 ###### Recommendations on async/promise function structures; Calculations for analog clock hand position transformations and styling.
 ###### (https://chat.openai.com/)
 
-##### Font Awesome
+#### Font Awesome
 ###### Profile link icon.
 ###### (https://fontawesome.com/)
 
-##### Raleway Designed by Matt McInerney, Pablo Impallari, Rodrigo Fuenzalida
+#### Raleway Designed by Matt McInerney, Pablo Impallari, Rodrigo Fuenzalida
 ###### Font sourced through Google Fonts api.
 ###### (https://fonts.google.com/specimen/Raleway?query=raleway)
 
-##### Rosé Pine 
+#### Rosé Pine 
 ###### Color palette / theme.
 ###### (https://rosepinetheme.com/)
 
-##### UCSD Coding Bootcamp & W3Schools 
+#### UCSD Coding Bootcamp & W3Schools 
 ###### Large influence and lessons on html/css for switch/toggle button for dark/light theme.
 ###### (https://git.bootcampcontent.com/University-of-California---San-Diego/UCSD-VIRT-FSF-PT-09-2023-U-LOLC/-/blob/d5e6546770e3a300de6659bbe57c3cc0da5bb293/04-Web-APIs/01-Activities/11-Ins_Event-Listener/assets/css/style.css)
 ###### (https://www.w3schools.com/howto/howto_css_switch.asp)
 
-##### US News & World Report 
+#### US News & World Report 
 ###### World data on top-ten populated cities.
 ###### (https://www.usnews.com/news/cities/slideshows/the-10-largest-cities-in-the-world)
 
