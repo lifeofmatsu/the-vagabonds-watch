@@ -1,4 +1,4 @@
-/* color palette (source: Rosé Pine) */
+/* color palette (source: Rosé Pine)
 :root{
     --base: rgb(25, 23, 36);
     --surface: rgb(31, 29, 46);
@@ -148,5 +148,5 @@ footer {
     height: 100%;
     opacity: 1;
     transition: none;
-}
+} */
 

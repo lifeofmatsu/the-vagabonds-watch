@@ -39,6 +39,10 @@
     visibility: hidden;
 }
 
+#digitalTime, #cityCountry {
+    padding-bottom: 20px;
+}
+
 .hour {
     position: absolute;
     font-size: 18px;

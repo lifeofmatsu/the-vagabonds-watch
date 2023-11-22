@@ -22,194 +22,402 @@ html {
     font-size: 62.5%;
 }
 
+/* 
+===============
+GENERAL STYLING
+===============
+*/
+
 body {
-    background-color: #c4c4c4;
-    font-family: 'Raleway', sans-serif;
-    font-size: 2.0rem;
+    font-family: 'Montserrat', sans-serif;    
+    font-size: 1.75rem;
+    font-weight: 300;
+    height: 100vh;
     line-height: 1.5;
+    color: #ededee;
+    /* background-color: #04040e; */
+    background-image: linear-gradient(
+        #1c202f 0%,
+        #000000 100%
+    );
 }
 
-nav {
-    width: 100%; /* Ensure nav takes up the full width */
-    display: flex;
-    align-items: center;
-    justify-content: space-evenly; /* Adjust as per design */
-    /* background-color: var(--overlay); */
-    box-shadow: 0 5px 5px -5px var(--deep-purple);
+h1, 
+h2, 
+h3, 
+p, 
+a {
+  margin-bottom: 0.625rem;
+  color: #ededee;
+  font-weight: 300;
+  line-height: 1.1;
+  text-decoration: none;
 }
 
-nav h1 {
-    display: flex;
-    margin: 0 10px;
-    padding: 10px;
-    text-decoration: underline;
-    color: var(--deep-purple);
-    padding-right: 300px;
-    margin-left: -50px;
+h1 {
+    font-size: 3.25rem;
+    font-weight: 500;
 }
 
-nav h1:hover {
-    color: var(--foam);
+h2 {
+    font-size: 2rem;
+    font-weight: 400;
+
 }
 
-nav a {
-    display: flex;
-    text-decoration: underline;
-    color: var(--deep-purple);
+h3 {
+    font-size: 1.5rem;
+    font-weight: 400;
 }
 
-nav a:hover {
-    color: var(--foam);
+p {
+    font-size: 1.25rem;
+    font-weight: 200;
+    margin-bottom: 1rem;
 }
 
-header {
+a {
+    font-size: 1.5rem;
+    font-weight: 200;
+}
+
+/* 
+============
+HEADER ITEMS
+============
+*/
+
+.header-container {
+    /* background-color: #72727c; */
+    font-family: 'Raleway', sans-serif;    
+    background-image: linear-gradient(
+        #202124 0%,
+        #1c202f 100%
+    );
+    color: #ededee;
+    margin: auto auto;
     width: 100%;
-    background-color: #829b94;
-    color: var(--love);
-    margin: 0 auto;
-    display: block;
 }
 
-#profile-icon {
-    color: var(--overlay);
-    padding: none;
+.header-grid {
+    display: grid;
+    grid-template-columns: 4fr repeat(4, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    padding: 20px 40px 10px;
 }
 
-main {
-    /* background-color: var(--overlay); */
-    padding: 20px;
+.hg-item1 {
+    grid-column: 1 / span 1;
+    grid-row: 1 / span 1;
+    place-self: center start;
 }
 
-.hcontainer {
-    width: 100%; 
-    max-width: 100%; 
-    padding: 0; 
+.hg-item1, h1 {
+    color: #72727c;
+    font-size: 4rem;
 }
 
-.mcontainer {
+.hg-item2 {
+    grid-column: 2 / span 2;
+    grid-row: 1 / span 1;
+    place-self: center center;
+}
+
+.hg-item3 {
+    grid-column: 3 / span 2;
+    grid-row: 1 / span 1;
+    place-self: center center;
+}
+
+.hg-item4 {
+    grid-column: 4 / span 2;
+    grid-row: 1 / span 1;
+    place-self: center center;
+}
+
+.hg-item5 {
+    grid-column: 5 / span 1;
+    grid-row: 1 / span 1;
+    place-self: center end;
+}
+
+.hg-item3,
+.hg-item4,
+.hg-item5,
+a {
+    font-size: 2rem;
+    font-weight: 400;
+}
+
+.hg-item6 {
+    grid-column: 1 / span 1;
+    grid-row: 2 / span 1;
+    place-self: start;
+}
+ 
+.hg-item6, h3 {
+    font-size: 2rem;
+    font-weight: 400;
+}
+
+.hg-item7 {
+    grid-column: 4 / span 2;
+    grid-row: 2 / span 1;
+    place-self: end;
+}
+
+/* hg-item7 - subgrid*/
+.mode-grid {
+    display: grid;
+    column-gap: 20px;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+    place-items: end;
+}
+
+.mode-item1 {
+    place-self: end;
+    grid-area: 1 / 2 / 1 / 3;
+}
+
+.mode-item1, div {
+    font-size: 1.75rem;
+    font-weight: 400;
+}
+
+.mode-item2 {
+    place-self: end start;
+    grid-area: 1 / -1 / 1 / -1;
+}
+
+/* hg-items1-3*/
+.nav-link:hover { 
+    text-decoration: underline;
+    text-shadow: 0px 0px 8px #fff, 0 0 15px #fff;
+}
+
+/* hg-item5 */
+.profile-icon svg:hover {
+    filter: drop-shadow(0 0 8px #fff);
+}
+
+/* 
+========================
+SWITCH BUTTON
+
+adapted from:
+    UCSD Coding Bootcamp
+    W3Schools
+========================
+*/
+
+/* switch button */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 26px;
+}
+
+/* disable default HTML checkbox */
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+/* toggle switch */
+.toggle {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ededee; /* light mode toggled ON */
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+.toggle:before {
+    position: absolute;
+    content: "";
+    height: 18px;
+    width: 18px;
+    left: 4px;
+    bottom: 4px;
+    background-color: #37838e; /* toggle switch button */
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+input:checked + .toggle {
+    background-color: #344674; /* dark mode toggled ON */
+}
+
+input:focus + .toggle {
+    box-shadow: #04040e;
+}
+
+input:checked + .toggle:before {
+    -webkit-transform: translateX(34px);
+    -ms-transform: translateX(34px);
+    transform: translateX(34px);
+}
+
+/* style round toggle switch */
+.toggle.round {
+    border-radius: 26px;
+}
+
+.toggle.round:before {
+    border-radius: 50%;
+}
+
+/* 
+============
+MAIN CONTENT
+============
+*/
+
+/* content body container */
+.body-container {
     display: flex;
+    padding: 20px 40px 10px;
 }
 
+/* search field container */
 .search-container {
-    color: var(--deep-purple);
-    background-color: var(--overlay);
-    flex: 1;
-}
-
-.time-container {
-    color: var(--foam);
+    color: #ededee;
+    background-color: #353935;
+    border-radius: 4px;
     flex: 1;
 }
 
 .collection-button{
-text-align: center;
-margin-top: 10px;
+    text-align: center;
+    margin-top: 10px;
 }
 
-#cityInput {
-    width: 100%;
-    max-width: 65%;
-    font-size: 16px;
-    padding: 12px 20px;
-    margin: 8px 0;
+.citySearch {
+    width: 96%;
+    font-size: 1.5rem;
+    padding: 12px 12px;
+    margin: 10px 10px 3px;
     display: inline-block;
-    border: 1px solid #ccc;
+    color: #ededee;
+    background-color: rgba(1, 39, 73, 0.25);
+    border: 1px solid rgba(5, 5, 15, 1);
     border-radius: 4px;
     box-sizing: border-box;
     transition: width 0.4s ease-in-out;
-}
+}      
 
-#cityInput:focus {
-    width: 300px;
-}
-
-#searchButton {
-    width: 80%; 
-    max-width: 200px; 
-    background-color: var(--pine);
-    color: var(--text);
-    padding: 10px 15px; 
-    margin: 8px 0;
+.searchButton {
     border: none;
     border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.2s ease-out;
-    position: relative;
-    overflow: hidden;
-    font-size: 14px; 
+    box-shadow: none;
+    color: white;     
+    font-size: 2.0rem; 
+    font-family: 'Montserrat', sans-serif; 
+    font-weight: 200;
+    margin: 0px 10px 10px;
+    padding: 15px 45px;
+    text-align: center;
+    width: 96%;
+
+    background-image: linear-gradient(
+        to right, #16222A 0%, 
+        #3A6073  51%, 
+        #16222A  100%
+    );
+    background-size: 200% auto;
+    transition: 0.5s;
 }
 
-#searchButton:hover {
-    background-color: var(--foam);
-}
-
-#searchButton::before {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 300%;
-    height: 300%;
-    background-color: var(--text);
-    transition: all 0.6s ease;
-    border-radius: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 0;
-    opacity: 0;
-}
-
-#searchButton:hover::before {
-    width: 0;
-    height: 0;
-    opacity: 0.8;
-}
-
-#searchButton span {
-    z-index: 1;
-    position: relative;
-}
-
-#searchButton:active::before {
-    width: 100%;
-    height: 100%;
-    opacity: 1;
-    transition: none;
-}
-
-#centerbutton {
-    position: relative; 
-    flex: flex;
+.searchButton:hover {
+    background-position: right center; /* change the direction of the change here */
+    color: #fff;
+    text-decoration: none;
 }
 
 .city-menu {
-    max-width:65%;
     list-style-type: none;
-    padding: 0;
     margin: 0;
+    box-sizing: border-box;
+    border-radius: 4px;
+    margin: 0px 10px 10px;
+    padding: 15px 45px;
 }
 
 .city-menu li {
-    padding: 8px;
-    text-align: left;
+    padding: 12px 20px;
     text-decoration: none;
-    color: var(--deep-purple);
+}
+
+.city-menu li a {
+    font-weight: 200;
 }
 
 .city-menu li:hover {
-    background-color: var(--iris);
+    background-color: #7fb2ca;
+    width: 96%;
+    border-radius: 4px;
+}
+
+/* result display container */
+.time-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    color: var(--foam);
+    flex: 1;
+}
+
+.saveButton {
+    border: none;
+    border-radius: 4px;
+    box-shadow: none;
+    color: white;     
+    font-size: 2.0rem; 
+    font-family: 'Montserrat', sans-serif; 
+    font-weight: 200;
+    margin: 0px 10px 10px;
+    padding: 30px 45px;
+    text-align: center;
+    width: 50%; 
+
+    background-image: linear-gradient(
+        to right, #16222A 0%, 
+        #3A6073  51%, 
+        #16222A  100%
+    );
+    background-size: 200% auto;
+    transition: 0.5s;
+    align-self: center;
+}
+
+.saveButton:hover {
+    background-position: right center; /* change the direction of the change here */
+    color: #fff;
+    text-decoration: none;
 }
 
 footer {
-    width: fit-content;
-    margin: 0 auto;
-    margin-bottom: 10px;
-    padding: 2.5rem;
+    background-color: #28282B;
+    clear: both;
+    font-family: 'Raleway', sans-serif;
+    padding: 30px;
     text-align: center;
-    background-color: var(--surface);
-    color: var(--iris);
 }
 
-/* Responsive adjustments for medium devices */
+footer h2 {
+    font-size: 1.5rem;
+    font-weight: 200;
+}
+
+/* responsive adjustments for medium devices */
 @media only screen and (min-width: 601px) and (max-width: 1024px) {
     nav {
         width: 100%;
@@ -222,7 +430,7 @@ footer {
     }
 }
 
-/* Responsive adjustments for small devices */
+/* responsive adjustments for small devices */
 @media only screen and (max-width: 600px) {
     nav {
         width: 100%;

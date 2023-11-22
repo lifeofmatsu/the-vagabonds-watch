@@ -113,12 +113,20 @@ function setupCityLinks() {
 }
 
 //event listener for the search input field
-document.getElementById('cityInput').addEventListener('input', async () => {
-    const input = document.getElementById('cityInput').value;
+document.getElementById('citySearch').addEventListener('input', async () => {
+    const input = document.getElementById('citySearch').value;
 
     if (input) {
         const suggestions = await fetchSuggestions(input);
         populateDatalist(suggestions);
+    }
+});
+
+//event listener for 'Enter' key in the search input
+document.getElementById('citySearch').addEventListener('keypress', (event) => {
+    if (event.key === 'Enter') {
+        const input = document.getElementById('citySearch').value;
+        handleCitySelection(input);
     }
 });
 
@@ -134,14 +142,6 @@ document.getElementById('searchButton').addEventListener('click', () => {
 //event listener to add user search to Collections page
 document.getElementById('saveButton').addEventListener('click', () => {
     saveCity();
-});
-
-//event listener for 'Enter' key in the search input
-document.getElementById('cityInput').addEventListener('keypress', (event) => {
-    if (event.key === 'Enter') {
-        const input = document.getElementById('cityInput').value;
-        handleCitySelection(input);
-    }
 });
 
 //fetch autocomplete suggestions displayed as user types in search bar

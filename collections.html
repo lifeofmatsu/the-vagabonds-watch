@@ -6,49 +6,50 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
 
-    <!-- webpage font 'Raleway' (source: Google Fonts API) -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,300;0,400;0,500;1,300;1,400;1,500&display=swap" rel="stylesheet" />
+    <!-- webpage font 'Montserrat' (source: Google Fonts API) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="./assets/css/reset.css" />
     <link rel="stylesheet" href="./assets/css/analog.css">
     <link rel="stylesheet" href="./assets/css/homepage.css" />
 
     <!-- CSS framework (source: Tailwind CSS) -->
-    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- <script src="https://cdn.tailwindcss.com"></script> -->
     
-    <title>Vagabond Time Collection</title>
+    <title>Vagabond Home</title>
 </head>
 
 <body>
     <header>
-        <section class="container">
-            <nav class="nav-flex"> 
-                <h1 class="title">The Vagabond's Watch</h1>
-                <a href="./index.html">Home</a>
-                <a href="./collections.html">Collections</a>
-                <a href="#profile">
+        <section class="header-container">
+            <div class="header-grid">
+                <h1 class="hg-item1">The Vagabond's Watch</h1>
+                <a class="hg-item2 nav-link" href="./index.html">Home</a>
+                <a class="hg-item3 nav-link" href="./collections.html">Collections</a>
+                <a class="hg-item4 nav-link" href="#about">About</a>
+                <a class="hg-item5 profile-icon" href="#profile">
                     <!-- profile icon (source: SVG Repo) -->
-                    <svg width="50px" height="50px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <svg width="45px" height="45px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
                         <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round" stroke="#CCCCCC" stroke-width="0.144"></g>
                         <g id="SVGRepo_iconCarrier"> 
-                            <circle cx="12" cy="9" r="3" stroke="#eb6f92" stroke-width="1.5"></circle> 
-                            <path d="M17.9691 20C17.81 17.1085 16.9247 15 11.9999 15C7.07521 15 6.18991 17.1085 6.03076 20" stroke="#eb6f92" stroke-width="1.5" stroke-linecap="round"></path> 
-                            <path d="M7 3.33782C8.47087 2.48697 10.1786 2 12 2C17.5228 2 22 6.47715 22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 10.1786 2.48697 8.47087 3.33782 7" stroke="#eb6f92" stroke-width="1.5" stroke-linecap="round"></path> 
+                            <circle cx="12" cy="9" r="3" stroke="#ededee" stroke-width="1.5"></circle> 
+                            <path d="M17.9691 20C17.81 17.1085 16.9247 15 11.9999 15C7.07521 15 6.18991 17.1085 6.03076 20" stroke="#ededee" stroke-width="1.5" stroke-linecap="round"></path> 
+                            <path d="M7 3.33782C8.47087 2.48697 10.1786 2 12 2C17.5228 2 22 6.47715 22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 10.1786 2.48697 8.47087 3.33782 7" stroke="#fff" stroke-width="1.5" stroke-linecap="round"></path> 
                         </g>
                     </svg>
-                </a>         
-            </nav>
-        </section>
-
-        <section class="container">
-            <div>DARK MODE</div>
-                <label class="switch" title="change theme" aria-label="change theme">
-                    <input type="checkbox" id="theme-toggle">
-                    <span class="toggle round"></span>
-                </label>
+                </a>
+                <h3 class="hg-item6">Where time exists no matter where you wander.</h3>
+                <div class="hg-item7 mode-grid">
+                    <div class="mode-item1">dark mode</div>
+                    <label class="switch mode-item2" title="change theme" aria-label="change theme">
+                        <input type="checkbox" id="theme-toggle">
+                        <span class="toggle round"></span>
+                    </label>
+                </div>
+            </div>
         </section>
     </header>
 
@@ -62,7 +63,8 @@
     </main>
 
     <footer>
-        <div> Thanks for visiting our page! It means a lot 💜</div>
+        <h2>Made with care by Jus Ferrell, Lucas Norton, & Alan Ruffo</h2>
+        <p>Thank you for visiting our page! We hope you enjoyed! 💜</p>
     </footer>
 
     <script src="./assets/js/collections.js"></script>
