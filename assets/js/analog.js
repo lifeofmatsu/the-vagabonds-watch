@@ -2,39 +2,32 @@ let globalTime = new Date(); //global variable to hold the current time of the s
 let clockInterval; //global variable for the clock interval
 let currentCity = '';
 
-//add user search to local storage - to be added to Collections
-async function saveCity() {
-    let storedCities = localStorage.getItem('savedCities');
-    let savedCities = JSON.parse(storedCities);
-
-    if (!savedCities) {
-        savedCities = [];
-    };
-
-    savedCities.push(currentCity);
-    localStorage.setItem('savedCities', JSON.stringify(savedCities));
-}
-
-//select and display city & time
-async function handleCitySelection(input) {
-    const locationData = await fetchLocationData(input);
+//display location, time, and timezone data (see event listeners)
+const displayUserResults = async (userInput) => {
+    const locationData = await fetchLocationData(userInput);
 
     if (locationData && locationData.city) {
-        await fetchCityTime(locationData.city); //call fetchCityTime only if city name is available
-        updateDigitalTimeAndCity(globalTime, locationData);
-        currentCity = input;
+        await fetchLocationTime(locationData.city);
+        displayDigitalData(globalTime, locationData);
+        currentCity = userInput;
     } else {
-        console.error('Location data not found for the input:', input); //for error or no data
+        console.error('Location data not found for the input:', userInput); //for error or no data
     }
 }
 
-//fetch time data for user search
-async function fetchCityTime(city) {
+/*
+============
+API HANDLING
+============
+*/
+
+//fetch time data for user search location
+const fetchLocationTime = async (city) => {
     const apiKey = 'LJFoOzyDdkNHaa49NCVDxQ==XdhyzQc0aGZxeKx4';
-    const url = `https://api.api-ninjas.com/v1/worldtime?city=${encodeURIComponent(city)}`;
+    const worldTimeUrl = `https://api.api-ninjas.com/v1/worldtime?city=${encodeURIComponent(city)}`;
 
     try {
-        const response = await fetch(url, {
+        const response = await fetch(worldTimeUrl, {
             method: 'GET',
             headers: { 'X-Api-Key': apiKey }
         });
@@ -42,53 +35,171 @@ async function fetchCityTime(city) {
 
         if (data && data.datetime) {
             globalTime = new Date(data.datetime);
-            startClocks();
+            startClocks(); //new instance of clocks
             document.getElementById('analogTime').style.visibility = 'visible';
             document.getElementById('digitalTime').style.visibility = 'visible';
+            document.getElementById('timeZone').style.visibility = 'visible';
             document.getElementById('placeInfo').style.visibility = 'visible';
         } else {
             console.error('Invalid response from API or missing data'); //for invalid response or missing data
         }
-    } catch (error) {
-        console.error('Error fetching time data:', error); //for fetch error
+    } catch (err) {
+        console.error('Error fetching time data:', err); //for fetch error
     }
 }
 
-//fetch location data from Teleport API
-async function fetchLocationData(input) {
-    //determine if input is a postal code or city name
-    const isPostalCode = /^\d+$/.test(input);
-    const teleportUrl = isPostalCode
-        ? `https://api.teleport.org/api/postalcodes/?search=${encodeURIComponent(input)}`
-        : `https://api.teleport.org/api/cities/?search=${encodeURIComponent(input)}`;
+//fetch city, state, country from Teleport API w/ API Ninjas postal code verification
+const fetchLocationData = async (userInput) => {
+    const isPostalCode = /^\d+$/.test(userInput); //determine if input is postal code
+
+    if (isPostalCode) {
+        return fetchPostalToCity(userInput); //convert postal code to city
+    } else {
+        //get location details through city name using Teleport API
+        const teleportUrl = `https://api.teleport.org/api/cities/?search=${encodeURIComponent(userInput)}`;
+        try {
+            const response = await fetch(teleportUrl);
+            const data = await response.json();
+            
+            if (data && data._embedded) {
+                const locationUrl = data._embedded['city:search-results'][0]._links['city:item'].href;
+                const locationResponse = await fetch(locationUrl);
+                const locationData = await locationResponse.json();
+
+                return {
+                    city: locationData.name,
+                    state: locationData._links['city:admin1_division'].name,
+                    country: locationData._links['city:country'].name,
+                    timezone: locationData._links['city:timezone'].name.replace(/_/g, ' ')
+                };
+            }
+            return null;
+        } catch (err) {
+            console.error('Error fetching location data:', err);
+            return null;
+        }
+    }
+}
+
+//fetch city name by converting from postal code using API Ninjas ZipCode API
+const fetchPostalToCity = async (postalCode) => {
+    const apiKey = 'LJFoOzyDdkNHaa49NCVDxQ==XdhyzQc0aGZxeKx4';
+    const postalCodeUrl = `https://api.api-ninjas.com/v1/zipcode?zip=${postalCode}`;
+
+    try {
+        const response = await fetch(postalCodeUrl, {
+            method: 'GET',
+            headers: { 'X-Api-Key': apiKey }
+        });
+        const data = await response.json();
+
+        if (data && data.length > 0) {
+            return { city: data[0].city };
+        }
+        return null;
+    } catch (err) {
+        console.error('Error fetching city from postal code:', err);
+        return null;
+    }
+}
+
+//fetch autocomplete suggestions for user search using Teleport API
+const fetchSuggestions = async (userInput) => {
+    const teleportUrl = `https://api.teleport.org/api/cities/?search=${encodeURIComponent(userInput)}`;
 
     try {
         const response = await fetch(teleportUrl);
         const data = await response.json();
-        
-        if (data && data._embedded) {
-            const firstResultLink = isPostalCode
-                ? data._embedded['postalcode:search-results'][0]._links['postalcode:item'].href
-                : data._embedded['city:search-results'][0]._links['city:item'].href;
-
-            const detailedResponse = await fetch(firstResultLink);
-            const detailedData = await detailedResponse.json();
-
-            return {
-                city: detailedData.name,
-                state: detailedData._links['city:admin1_division'].name,
-                country: detailedData._links['city:country'].name
-            };
-        }
-        return null;
-    } catch (error) {
-        console.error('Error fetching location data:', error);
-        return null;
+        return data && data._embedded
+            ? data._embedded['city:search-results'].map(item => item.matching_full_name)
+            : [];
+    } catch (err) {
+        console.error('Error fetching suggestions:', err);
+        return [];
     }
 }
 
-//populate datalist for autocomplete suggestions
-function populateDatalist(suggestions) {
+/*
+=============
+DATA HANDLING
+=============
+*/
+
+//continuous, smooth translation of analog clock hands
+function updateAnalogTime() {
+    const second = globalTime.getSeconds();
+    const minute = globalTime.getMinutes();
+    const hour = globalTime.getHours();
+    const ms = globalTime.getMilliseconds();
+
+    const hourDeg = (hour % 12) / 12 * 360 + minute / 2;
+    const minuteDeg = minute / 60 * 360;
+    const secondDeg = (second + ms / 1000) / 60 * 360; // Include milliseconds for smooth rotation
+
+    document.getElementById('hourHand').style.transform = `rotate(${hourDeg}deg)`;
+    document.getElementById('minuteHand').style.transform = `rotate(${minuteDeg}deg)`;
+    document.getElementById('secondHand').style.transform = `rotate(${secondDeg}deg)`;
+}
+
+//continuous update to displayed digital time
+function updateDigitalTime(time) {
+    const digitalTimeString = time.toLocaleTimeString();
+    document.getElementById('digitalTime').innerText = digitalTimeString;
+}
+
+//display running digital clock, timezone, and location info
+const displayDigitalData = (time, locationData) => {
+    updateDigitalTime(time); //display digital time
+
+    //extract and display timezone
+    let timeZone = `${locationData.timezone}`;
+    document.querySelector('#timeZone p').textContent = '[' + timeZone + ']';
+
+    //extract and display city, state, country
+    let locationDisplay = `${locationData.city}`;
+    if (locationData.state && locationData.state !== locationData.city) {
+        locationDisplay += `, ${locationData.state}`;
+    }
+
+    locationDisplay += `, ${locationData.country}`;
+    document.getElementById('placeInfo').innerText = locationDisplay;
+}
+
+//generate analog and digital clocks in sync
+const startClocks = () => {
+    if (clockInterval) {
+        clearInterval(clockInterval); //clear existing interval if it exists
+    }
+
+    clockInterval = setInterval(() => {
+        globalTime.setMilliseconds(globalTime.getMilliseconds() + 50);
+
+        updateAnalogTime();
+        updateDigitalTime(globalTime);
+
+    }, 50); //update every 50 milliseconds
+}
+
+/*
+================
+HELPER FUNCTIONS
+================
+*/
+
+//event listener for top search menu options (links)
+const setupMenuOptions = () => {
+    const menuLinks = document.querySelectorAll('.menuSearch a');
+
+    menuLinks.forEach(link => {
+        link.addEventListener('click', (event) => {
+            event.preventDefault();
+            displayUserResults(event.target.getAttribute('data-city'));
+        });
+    });
+}
+
+//populate list of autocomplete suggestions
+const populateAutocomplete = (suggestions) => {
     const datalist = document.getElementById('suggestions');
 
     datalist.innerHTML = ''; //clear existing suggestions
@@ -100,122 +211,73 @@ function populateDatalist(suggestions) {
     });
 }
 
-//event listeners for city menu links
-function setupCityLinks() {
-    const cityLinks = document.querySelectorAll('.menuSearch a');
+/*
+===============
+EVENT LISTENERS
+===============
+*/
 
-    cityLinks.forEach(link => {
-        link.addEventListener('click', (event) => {
-            event.preventDefault();
-            handleCitySelection(event.target.getAttribute('data-city'));
-        });
-    });
-}
-
-//event listener on the user search field for suggestion dropdown
-document.getElementById('citySearch').addEventListener('input', async () => {
-    const input = document.getElementById('citySearch').value;
-
-    if (input) {
-        const suggestions = await fetchSuggestions(input);
-        populateDatalist(suggestions);
-    }
-});
+//event listener for loaded webpage to set up place links
+document.addEventListener('DOMContentLoaded', setupMenuOptions);
 
 //event listener for 'Enter' key on user search
-document.getElementById('citySearch').addEventListener('keypress', (event) => {
+document.getElementById('userSearch').addEventListener('keypress', (event) => {
     if (event.key === 'Enter') {
-        const input = document.getElementById('citySearch').value.trim();
+        const userInput = document.getElementById('userSearch').value.trim();
 
-        if (input) {
-            handleCitySelection(input);
+        if (userInput) {
+            displayUserResults(userInput);
         }
     }
 });
 
 //event listener for the search button on user search
 document.getElementById('searchButton').addEventListener('click', () => {
-    const input = document.getElementById('citySearch').value.trim();
+    const userInput = document.getElementById('userSearch').value.trim();
 
-    if (input) {
-        handleCitySelection(input);
+    if (userInput) {
+        displayUserResults(userInput);
     }
 });
+
+//event listener on the user search field for suggestion dropdown
+document.getElementById('userSearch').addEventListener('input', async () => {
+    const userInput = document.getElementById('userSearch').value.trim();
+
+    if (userInput) {
+        const suggestions = await fetchSuggestions(userInput);
+        populateAutocomplete(suggestions);
+    }
+});
+
+
+//init
+startClocks();
+
+
+/*
+================
+COLLECTIONS PAGE
+================
+*/
+
+//add user search to local storage - to be added to Collections
+const storeCollectionItem = async () => {
+    let storedCities = localStorage.getItem('savedCities');
+    let savedCities = JSON.parse(storedCities);
+
+    if (!savedCities) {
+        savedCities = [];
+    };
+
+    savedCities.push(currentCity);
+    localStorage.setItem('savedCities', JSON.stringify(savedCities));
+}
 
 //event listener to add user search to Collections page
 document.getElementById('saveButton').addEventListener('click', () => {
-    saveCity();
+    storeCollectionItem();
 });
-
-//fetch autocomplete suggestions displayed as user types in search bar
-async function fetchSuggestions(input) {
-    const teleportUrl = `https://api.teleport.org/api/cities/?search=${encodeURIComponent(input)}`;
-
-    try {
-        const response = await fetch(teleportUrl);
-        const data = await response.json();
-        return data && data._embedded
-            ? data._embedded['city:search-results'].map(item => item.matching_full_name)
-            : [];
-    } catch (error) {
-        console.error('Error fetching suggestions:', error);
-        return [];
-    }
-}
-
-//event listener for loaded webpage to set up place links
-document.addEventListener('DOMContentLoaded', setupCityLinks);
-
-//ensures analog and digital time are generated in sync
-function startClocks() {
-    if (clockInterval) {
-        clearInterval(clockInterval); //clear existing interval if it exists
-    }
-
-    clockInterval = setInterval(() => {
-        globalTime.setMilliseconds(globalTime.getMilliseconds() + 50);
-
-        updateAnalogClockHands(); //update analog clock hands for smoother rotation
-        updateDigitalTime(globalTime); //update digital clock
-
-    }, 50); //update every 50 milliseconds
-}
-
-//continuous translation of analog clock hands
-function updateAnalogClockHands() {
-    const second = globalTime.getSeconds();
-    const minute = globalTime.getMinutes();
-    const hour = globalTime.getHours();
-    const ms = globalTime.getMilliseconds();
-
-    const hourDeg = (hour % 12) / 12 * 360 + minute / 2;
-    const minuteDeg = minute / 60 * 360;
-    const secondDeg = (second + ms / 1000) / 60 * 360; // Include milliseconds for smooth rotation
-
-    document.getElementById('hour-hand').style.transform = `rotate(${hourDeg}deg)`;
-    document.getElementById('minute-hand').style.transform = `rotate(${minuteDeg}deg)`;
-    document.getElementById('second-hand').style.transform = `rotate(${secondDeg}deg)`;
-}
-
-//continuous updating of displayed digital time
-function updateDigitalTime(time) {
-    const digitalTimeString = time.toLocaleTimeString();
-    document.getElementById('digitalTime').innerText = digitalTimeString;
-}
-
-//displays updating digital time and place data
-function updateDigitalTimeAndCity(time, locationData) {
-    const digitalTimeString = time.toLocaleTimeString();
-    document.getElementById('digitalTime').innerText = digitalTimeString;
-
-    let locationDisplay = `${locationData.city}`;
-    if (locationData.state && locationData.state !== locationData.city) {
-        locationDisplay += `, ${locationData.state}`;
-    }
-
-    locationDisplay += `, ${locationData.country}`;
-    document.getElementById('placeInfo').innerText = locationDisplay;
-}
 
 //event listener for button to add search to Collections
 document.getElementById('saveButton').addEventListener('click', function() {
@@ -231,6 +293,3 @@ document.getElementById('saveButton').addEventListener('click', function() {
     
     window.location.href = 'collections.html'; //redirect to Collections page
 });
-
-//init
-startClocks();

@@ -6,20 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
 
-    <!-- font 'Raleway' (source: Google Fonts API) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@100;200;300;400;500;600&display=swap" rel="stylesheet">
-    
-    <!-- font 'Montserrat' (source: Google Fonts API) -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@100;200;300;400;500;600&display=swap" rel="stylesheet">
-
-    <!-- font 'Quattrocento' (source: Google Fonts API) -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Quattrocento:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Hedvig+Letters+Sans&family=Hedvig+Letters+Serif:opsz@12..24&display=swap" rel="stylesheet">
+        
+<!-- <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"> -->
 
     <link rel="stylesheet" href="./assets/css/reset.css" />
     <link rel="stylesheet" href="./assets/css/homepage.css" />
@@ -65,8 +56,8 @@
 
     <main class="body-grid">
         <section class="search-grid">
-            <div class="search-cell-top" id="userSearch">
-                <input type="text" class="userEntry" id="citySearch" placeholder="Enter City or Postal Code" list="suggestions">
+            <div class="search-cell-top">
+                <input type="text" class="userEntry" id="userSearch" placeholder="Enter City or Postal Code" list="suggestions">
                 <br> <!-- move search button below the input field -->
                 <button class="searchButton" id="searchButton">search</button>
                 <datalist id="suggestions">
@@ -77,7 +68,7 @@
             <div class="search-cell-bottom menuSearch" id="menuSearch" role="list">
                 <!-- user search suggestion list -->
                 <!-- top ten populated cities of the world (source: US News & World Report) -->
-                <h4 class="menu-item0" role="listitem">Popular Searches</h4>
+                <p class="menu-item0" role="listitem">Trending Searches</p>
                 <a class="menu-item1 menu-link" role="listitem" href="#" data-city="Tokyo, Japan">Tokyo, Japan</a>
                 <a class="menu-item2 menu-link" role="listitem" href="#" data-city="Delhi, India">Delhi, India</a>
                 <a class="menu-item3 menu-link" role="listitem" href="#" data-city="Shanghai, China">Shanghai, China</a>
@@ -107,24 +98,28 @@
                     <div class="hour" id="hour-10">X</div>
                     <div class="hour" id="hour-11">XI</div>
                     <div class="hour" id="hour-12">XII</div>
-                    <div class="hand hour-hand" id="hour-hand"></div>
-                    <div class="hand minute-hand" id="minute-hand"></div>
-                    <div class="hand second-hand" id="second-hand"></div>
+                    <div class="hand hour-hand" id="hourHand"></div>
+                    <div class="hand minute-hand" id="minuteHand"></div>
+                    <div class="hand second-hand" id="secondHand"></div>
+                    <div class="circle" id="secondHandPin"></div>
                 </div>
                 <!-- digital time element -->
-                <div class="digitalTime time-item3" id="digitalTime"></div>
+                <div class="time-item3">
+                    <label for="digitalTime" id="timeZone"><p></p></label>
+                    <div class="digitalTime" id="digitalTime"></div>
+                </div>
             </div>
 
             <!-- city/time info element -->
-            <div class="placeInfo time-item4" id="placeInfo"></div>
+            <div class="time-item4" id="placeInfo"></div>
 
-            <button class="saveButton time-item5" id="saveButton">+ Add to Collections</button>
+            <button class="time-item5" id="saveButton">+ Add to Collections</button>
         </section>
     </main>
 
-    <footer>
+    <footer class="footer">
         <h2>Made with care by Jus Ferrell, Lucas Norton, & Alan Ruffo</h2>
-        <p>Thank you for visiting our page! We hope you enjoyed! 💜</p>
+        <p>Thank you for your patronage! We hope you enjoyed! 💜</p>
     </footer>
 
     <script src="./assets/js/analog.js"></script>

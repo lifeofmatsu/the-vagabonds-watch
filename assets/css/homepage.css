@@ -1,22 +1,17 @@
-/* color palette inspiration (source: Clockface Online */
+/* color palette inspiration (source: Clockface Online: https://www.clockfaceonline.co.uk/clocks/time-manager/) */ 
 :root {
     --gen-fill: #14232e;
     --gen-text: #94b8d1;
     --a-text: #268ed9;
     --pie-fill: #111e27;
     --sleep-slice-fill: #2e526b;
-    --sleep-slice-hover: #94b8d1;
     --work-slice-fill: #4d88b3;
-    --work-slice-hover: #94b8d1;
     --number-label-fill: rgba(153,213,255,.5);
     --crosshairs-stroke: rgba(153,213,255,.3);
-    --hour-hand: #b3d0e6;
-    --second-hand: #b3d0e6;
+    --analog-hand: #b3d0e6;
     --tooltip-background: rgba(0,0,0,.6);
     --tooltip-text: #aaa;
     --tooltip-data-text: #eee;
-    --mini-clock-face-fill: #111e27;
-    --mini-clock-face-hover: #2e526b;
     --mini-clock-slice-fill: #3d6d8f;
     --mini-clock-slice-hover: #70a0c2;
     --timer-display-border: rgba(102,191,255,.2);
@@ -42,15 +37,15 @@ GENERAL STYLING
 */
 
 body {
-    background-color: var(--gen-fill);
-    color: var(--gen-text);
-    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+    background-color: rgb(20, 35, 46);
+    color: rgb(148, 184, 209);
+    font-family: 'Hedvig Letters Sans', sans-serif;
     height: 100%;
     line-height: 1.5;
 }
 
 h1, h2, h3, h4, h5, h6 {
-    color: var(--gen-text);
+    color: rgb(148, 184, 209);
     font-weight: 700;
     text-decoration: none;
 }
@@ -73,7 +68,7 @@ p {
 }
 
 a {
-    color: var(--a-text);
+    color: rgb(38, 142, 217);
     font-size: 1.5rem;
     font-weight: 200;
 }
@@ -85,8 +80,7 @@ HEADER ITEMS
 */
 
 .header-container {
-    font-family: 'Raleway', sans-serif;    
-    /* color: #ededee; */
+    font-family: 'Hedvig Letters Sans', sans-serif;
     margin: auto auto;
     width: 100%;
 }
@@ -105,7 +99,7 @@ HEADER ITEMS
 }
 
 .hg-item1, h1 {
-    color: #72727c;
+    color: rgb(115, 115, 125);
     font-size: 4.5rem;
 }
 
@@ -134,7 +128,7 @@ HEADER ITEMS
 }
 
 .hg-item2, .hg-item3, .hg-item4, .hg-item5 a {
-    color: #ededee;
+    color: rgb(237, 237, 238);
     font-size: 2rem;
     font-weight: 400;
 }
@@ -183,12 +177,12 @@ HEADER ITEMS
 /* hg-items1-3*/
 .nav-link:hover { 
     text-decoration: underline;
-    text-shadow: 0px 0px 8px #fff, 0 0 15px #fff;
+    text-shadow: 0px 0px 8px rgb(237, 237, 238), 0 0 15px rgb(237, 237, 238);
 }
 
 /* hg-item5 */
 .profile-icon svg:hover {
-    filter: drop-shadow(0 0 8px #fff);
+    filter: drop-shadow(0 0 8px rgb(237, 237, 238));
 }
 
 /* 
@@ -207,6 +201,7 @@ adapted from:
     display: inline-block;
     width: 60px;
     height: 26px;
+    font-family: 'Hedvig Letters Sans', sans-serif;
 }
 
 /* disable default HTML checkbox */
@@ -224,7 +219,7 @@ adapted from:
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: #ededee; /* light mode toggled ON */
+    background-color: rgb(237, 237, 238); /* light mode toggled ON */
     -webkit-transition: .4s;
     transition: .4s;
 }
@@ -236,17 +231,17 @@ adapted from:
     width: 18px;
     left: 4px;
     bottom: 4px;
-    background-color: #37838e; /* toggle switch button */
+    background-color: rgb(56, 131, 143); /* toggle switch button */
     -webkit-transition: .4s;
     transition: .4s;
 }
 
 input:checked + .toggle {
-    background-color: #344674; /* dark mode toggled ON */
+    background-color: rgb(52, 70, 116); /* dark mode toggled ON */
 }
 
 input:focus + .toggle {
-    box-shadow: #04040e;
+    box-shadow: rgb(4, 4, 16);
 }
 
 input:checked + .toggle:before {
@@ -282,9 +277,10 @@ MAIN CONTENT
 .search-grid {
     display: grid;
     grid-template-columns: auto; 
-    grid-template-rows: 1fr 4fr;
+    grid-template-rows: 120px 1fr;
+    font-family: 'Hedvig Letters Sans', sans-serif;
     background-color: rgba(0,0,0,.4);
-    padding: 10px 10px 40px;
+    padding: 30px 20px 15px;
 }
 
 .search-cell-top {
@@ -292,7 +288,6 @@ MAIN CONTENT
     grid-template-columns: auto;
     grid-template-rows: 1fr 1fr;
     gap: 10px;
-    /* padding: 10px; */
 }
 
 .userEntry {
@@ -302,8 +297,8 @@ MAIN CONTENT
 
     font-size: 1.75rem;
     padding: 16px;
-    color: #ededee;
-    background-color: #16222A;
+    color: rgb(237, 237, 238);
+    background-color: rgb(23, 34, 41);
     border: 1px solid rgba(5, 5, 15, 1);
     border-radius: 4px;
     transition: width 0.4s ease-in-out;
@@ -317,17 +312,17 @@ MAIN CONTENT
     border: 8px;
     border-radius: 4px;
     box-shadow: none;
-    color: white;     
+    color: rgb(237, 237, 238);     
     font-size: 2.25rem; 
-    font-family: 'Montserrat', sans-serif; 
     font-weight: 400;
     padding: 15px 45px;
     text-align: center;
+    letter-spacing: 2px;
 
     background-image: linear-gradient(
-        to right, #16222A 0%, 
-        #3A6073  50%, 
-        #16222A  100%
+        to right, rgb(23, 34, 41) 0%, 
+        rgb(58, 96, 115)  50%, 
+        rgb(23, 34, 41)  100%
     );
     background-size: 200% auto;
     transition: 0.5s;
@@ -344,15 +339,22 @@ MAIN CONTENT
 }
 
 .menu-item0 {
-    place-self: start;
-    padding-left: 10px;
-    font-size: 2.25rem;
+    place-self: end start;
+    padding-left: 5px;
+    padding-bottom: 20px;
+    font-size: 2.35rem;
+    font-weight: 300px;
+    color: rgb(148, 184, 209);
+    letter-spacing: 1px;
+    margin: 0;
+    text-decoration: underline;
+    text-underline-position: right under;
 }
 
 .menu-link {
     place-self: start center;
     font-size: 2rem;
-    color: var(--gen-text);
+    color: rgb(148, 184, 209);
     text-decoration: none;
 }
 
@@ -361,18 +363,22 @@ MAIN CONTENT
     text-shadow: 0px 0px 8px rgba(158,212,250,.7), 0 0 15px rgba(158,212,250,.7);
 }
 
-footer {
-    background-color: #28282B;
+.footer {
+    background-color: rgba(0,0,0,.3);
     clear: both;
-    font-family: 'Raleway', sans-serif;
     padding: 15px;
     text-align: center;
 }
 
-footer h2 {
+.footer h2, p {
+    color: rgba(153,213,255,.4);
+}
+
+.footer h2 {
     font-size: 1.5rem;
     font-weight: 200;
 }
+
 
 /* responsive adjustments for medium devices */
 @media only screen and (min-width: 601px) and (max-width: 1024px) {
@@ -399,5 +405,3 @@ footer h2 {
         margin: 10px 0;
     }
 }
-
-

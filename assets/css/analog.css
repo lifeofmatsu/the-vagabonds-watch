@@ -1,35 +1,73 @@
 /* color palette inspiration (source: Clockface Online */
 :root {
     --gen-fill: #14232e;
-    --gen-text: #94b8d1;
-    --a-text: #268ed9;
-    --hrmin-hands: #111e27;
-    --second-hand: #b3d0e6;
-
-    --analog-text: #2e526b;
-    --sleep-slice-hover: #94b8d1;
-    /* --analog-fill: #4d88b3; */
-    --work-slice-hover: #94b8d1;
+    --gen-text: rgb(148, 184, 209);
+    --a-text: rgb(38, 142, 217);
+    --pie-fill: #111e27;
+    --sleep-slice-fill: #2e526b;
+    --work-slice-fill: #4d88b3;
     --number-label-fill: rgba(153,213,255,.5);
     --crosshairs-stroke: rgba(153,213,255,.3);
-    /* --analog-border: rgba(0,0,0,.6); */
+    --analog-hand: rgb(179, 207, 230);
+    --tooltip-background: rgba(0,0,0,.6);
     --tooltip-text: #aaa;
-    /* --analog-fill: #eee; */
-    --analog-fill: #111e27;
-    --mini-clock-face-hover: #2e526b;
+    --tooltip-data-text: #eee;
     --mini-clock-slice-fill: #3d6d8f;
     --mini-clock-slice-hover: #70a0c2;
     --timer-display-border: rgba(102,191,255,.2);
     --timer-display-text: rgba(168,210,240,.9);
     --bedtime-border: rgba(158,212,250,.7);
     --bedtime-boxshadow: rgba(110,190,247,.5);
-    --analog-fill: rgba(112,160,194,.5);
+    --bedtime-background: rgba(112,160,194,.5);
     --bedtime-background2: rgba(0,0,0,.1);
     --ring-border: rgba(153,213,255,.1);
     --ring-bordertop-color: rgba(153,213,255,.7);
     --ring2-bordertop-color: rgba(153,213,255,.4);
 }
 
+/* 
+===============
+GENERAL STYLING
+===============
+*/
+
+h1, h2, h3, h4, h5, h6 {
+    color: rgb(148, 184, 209);
+    font-weight: 700;
+    text-decoration: none;
+}
+
+h1 {
+    font-size: 3.25rem;
+    font-weight: 500;
+    margin-top: 0;
+}
+
+h2 {
+    font-size: 2rem;
+    font-weight: 400;
+}
+
+p {
+    font-size: 1.25rem;
+    font-weight: 200;
+    margin: 1em 0;
+}
+
+a {
+    color: rgb(38, 142, 217);
+    font-size: 1.5rem;
+    font-weight: 200;
+}
+
+/* 
+======================
+TIME & PLACE INTERFACE
+======================
+*/
+
+
+/* home page section contains user search result */
 .time-grid {
     display: grid;
     grid-template-columns: auto;
@@ -37,8 +75,12 @@
     place-items: center;
     row-gap: 10px;
     padding: 10px 0px 20px 20px;
+    font-family: 'Hedvig Letters Serif', serif;
+    color: rgb(148, 184, 209);
+    background-color: rgba(0,0,0,.4);
 }
 
+/* analog & digital time - SUBGRID */
 .time-item1 {
     display: grid;
     grid-template-columns: auto;
@@ -46,6 +88,7 @@
     row-gap: 10px;
 }
 
+ /* analog skeleton & positioning */
 .time-item2 {
     place-self: center;
     display: flex;
@@ -54,14 +97,14 @@
     position: relative;
     width: 600px;
     height: 600px;
-    border: 10px solid black;
+    border: 10px solid rgb(46, 82, 107);
     border-radius: 50%;
     margin: 50px auto;    
 }
 
+/* analog hour roman numerals */
 .hour {
-    font-family: 'Montserrat', sans-serif;
-    color: var(----analog-text);
+    color: rgb(148, 184, 209);
     position: absolute;
     font-size: 46px;
     width: 90px;
@@ -119,57 +162,102 @@
     transform: rotate(270deg) translate(255px) rotate(-270deg); 
 }
   
+/* analog clock hands */
 .hand {
     position: absolute;
-    border-radius: 8px;
+    border-radius: 4px;
     transform-origin: bottom;
+    background-color: rgb(179, 207, 230);
 }
 
 .hour-hand {
     bottom: 50%;
     left: 50%;
     width: 5px; 
-    height: 200px;
-    background-color: var(--second-hand);
+    height: 180px;
 }
 
 .minute-hand {
     bottom: 50%;
     left: 50%;
     width: 5px; 
-    height: 250px; 
-    background-color: var(--second-hand);
+    height: 220px; 
 }
 
 .second-hand {
     bottom: 50%;
     left: 50%;
-    width: 2px; 
-    height: 285px;
-    background-color: var(--second-hand);
+    width: 1.35px; 
+    height: 290px;
     animation: none; 
 }
 
+#secondHandPin {
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    /* border: 1px solid rgba(148, 184, 209, .75); */
+    border-radius: 50%;
+    background-color: rgba(148, 184, 209, 1);
+    bottom: 48.75%;
+    left: 49.25%;
+}
+
+
+/* digital clock - digitalTime */
 .time-item3 {
-    place-self: center start;
+    place-self: start center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
+#timeZone p {
+    display: block;
+    flex-grow: 1;
+    font-family: 'Hedvig Letters Sans', sans-serif;
+    font-size: 1.25rem;
+    color: rgba(168, 210, 240, .9);
+    letter-spacing: 3px;
+}
+
+.time-item3 #digitalTime {
+    border: 1px solid rgba(102, 191, 255, .2);
+    border-radius: 20px;
+    color: rgba(168, 210, 240, .9);
+    display: block;
+    line-height: 100%;
+    margin: 0 auto;
+    padding: 25px 30px;
+    text-rendering: optimizeLegibility;
+    transition: all 1s ease-in-out;
+    flex-grow: 3;
+    font-size: 4.5rem;
+    letter-spacing: 3px;
+}
+
+/* user city search results - placeInfo */
 .time-item4 {
-    place-self: center;
+    place-self: start center;
+    font-size: 3.5rem;
+    font-weight: 800;
+    color: rgb(168, 210, 240);
+    letter-spacing: 3px;
 }
 
-/* saveButton */
+/* add to collections page - saveButton */
 .time-item5 { 
     border: 8px;
     border-radius: 2px;
     box-shadow: none;
-    color: white;     
+    color: rgb(237, 237, 238); 
+    font-family: 'Hedvig Letters Sans', sans-serif;
     font-size: 1.5rem;
-    font-family: PP Neue Montreal,Helvetica Neue,Helvetica,Arial,sans-serif; 
     font-weight: 200;
     padding: 15px 22.5px;
     text-align: center;
-    letter-spacing: 1px;
+    letter-spacing: 2px;
     width: 30%;
 
     background-image: linear-gradient(
