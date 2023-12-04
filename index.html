@@ -6,19 +6,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
 
-    <!-- webpage font 'Raleway' (source: Google Fonts API) -->
+    <!-- font 'Raleway' (source: Google Fonts API) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@100;200;300;400;500;600&display=swap" rel="stylesheet">
     
-    <!-- webpage font 'Montserrat' (source: Google Fonts API) -->
+    <!-- font 'Montserrat' (source: Google Fonts API) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@100;200;300;400;500;600&display=swap" rel="stylesheet">
 
+    <!-- font 'Quattrocento' (source: Google Fonts API) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quattrocento:wght@400;700&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="./assets/css/reset.css" />
-    <link rel="stylesheet" href="./assets/css/analog.css">
     <link rel="stylesheet" href="./assets/css/homepage.css" />
+    <link rel="stylesheet" href="./assets/css/analog.css">
 
     <!-- CSS framework (source: Tailwind CSS) -->
     <!-- <script src="https://cdn.tailwindcss.com"></script> -->
@@ -30,7 +35,7 @@
     <header>
         <section class="header-container">
             <div class="header-grid">
-                <h1 class="hg-item1">The Vagabond's Watch</h1>
+                <h1 class="hg-item1">the vagabond watch</h1>
                 <a class="hg-item2 nav-link" href="./index.html">Home</a>
                 <a class="hg-item3 nav-link" href="./collections.html">Collections</a>
                 <a class="hg-item4 nav-link" href="#about">About</a>
@@ -46,7 +51,7 @@
                         </g>
                     </svg>
                 </a>
-                <h3 class="hg-item6">Where Time exists no matter where you wander.</h3>
+                <h3 class="hg-item6">where Time exists no matter where you wander...</h3>
                 <div class="hg-item7 mode-grid">
                     <div class="mode-item1">dark mode</div>
                     <label class="switch mode-item2" title="change theme" aria-label="change theme">
@@ -58,60 +63,62 @@
         </section>
     </header>
 
-    <main class="body-container">
-        <section class="search-container">
-            <div id="search">
-                <input type="text" class="citySearch" id="citySearch" placeholder="Enter City or Postal Code" list="suggestions">
+    <main class="body-grid">
+        <section class="search-grid">
+            <div class="search-cell-top" id="userSearch">
+                <input type="text" class="userEntry" id="citySearch" placeholder="Enter City or Postal Code" list="suggestions">
                 <br> <!-- move search button below the input field -->
-                <button class="searchButton" id="searchButton">SEARCH</button>
+                <button class="searchButton" id="searchButton">search</button>
                 <datalist id="suggestions">
                     <!-- populate search autocomplete suggestions -->
                 </datalist>
             </div>
 
-            <div>
-                <ul class="city-menu" id="top-cities" role="list">
-                    <!-- user search suggestion list -->
-                    <!-- top ten populated cities of the world (source: US News & World Report) -->
-                    <li role="listitem"><a href="#" data-city="Tokyo, Japan">Tokyo, Japan</a></li>
-                    <li role="listitem"><a href="#" data-city="Delhi, India">Delhi, India</a></li>
-                    <li role="listitem"><a href="#" data-city="Shanghai, China">Shanghai, China</a></li>
-                    <li role="listitem"><a href="#" data-city="São Paulo, Brazil">São Paulo, Brazil</a></li>
-                    <li role="listitem"><a href="#" data-city="Mexico City, Mexico">Mexico City, Mexico</a></li>
-                    <li role="listitem"><a href="#" data-city="Dhaka, Bangladesh">Dhaka, Bangladesh</a></li>
-                    <li role="listitem"><a href="#" data-city="Cairo, Egypt">Cairo, Egypt</a></li>
-                    <li role="listitem"><a href="#" data-city="Beijing, China">Beijing, China</a></li>
-                    <li role="listitem"><a href="#" data-city="Mumbai, India">Mumbai, India</a></li>
-                    <li role="listitem"><a href="#" data-city="Osaka, Japan">Osaka, Japan</a></li>
-                </ul>
-            </div>
+            <div class="search-cell-bottom menuSearch" id="menuSearch" role="list">
+                <!-- user search suggestion list -->
+                <!-- top ten populated cities of the world (source: US News & World Report) -->
+                <h4 class="menu-item0" role="listitem">Popular Searches</h4>
+                <a class="menu-item1 menu-link" role="listitem" href="#" data-city="Tokyo, Japan">Tokyo, Japan</a>
+                <a class="menu-item2 menu-link" role="listitem" href="#" data-city="Delhi, India">Delhi, India</a>
+                <a class="menu-item3 menu-link" role="listitem" href="#" data-city="Shanghai, China">Shanghai, China</a>
+                <a class="menu-item4 menu-link" role="listitem" href="#" data-city="São Paulo, Brazil">São Paulo, Brazil</a>
+                <a class="menu-item5 menu-link" role="listitem" href="#" data-city="Mexico City, Mexico">Mexico City, Mexico</a>
+                <a class="menu-item6 menu-link" role="listitem" href="#" data-city="Dhaka, Bangladesh">Dhaka, Bangladesh</a>
+                <a class="menu-item7 menu-link" role="listitem" href="#" data-city="Cairo, Egypt">Cairo, Egypt</a>
+                <a class="menu-item8 menu-link" role="listitem" href="#" data-city="Beijing, China">Beijing, China</a>
+                <a class="menu-item9 menu-link" role="listitem" href="#" data-city="Mumbai, India">Mumbai, India</a>
+                <a class="menu-item10 menu-link" role="listitem" href="#" data-city="Osaka, Japan">Osaka, Japan</a>
+            </ul>
         </section>
 
-        <section class="time-container">
-            <div id="clock">
-                <div class="hour" id="hour-1">I</div>
-                <div class="hour" id="hour-2">II</div>
-                <div class="hour" id="hour-3">III</div>
-                <div class="hour" id="hour-4">IV</div>
-                <div class="hour" id="hour-5">V</div>
-                <div class="hour" id="hour-6">VI</div>
-                <div class="hour" id="hour-7">VII</div>
-                <div class="hour" id="hour-8">VIII</div>
-                <div class="hour" id="hour-9">IX</div>
-                <div class="hour" id="hour-10">X</div>
-                <div class="hour" id="hour-11">XI</div>
-                <div class="hour" id="hour-12">XII</div>
-                <div id="hour-hand" class="hand"></div>
-                <div id="minute-hand" class="hand"></div>
-                <div id="second-hand" class="hand"></div>
+        <section class="time-grid">
+            <div class="time-item1">
+                <!-- analog time element -->
+                <div class="time-item2" id="analogTime">
+                    <div class="hour" id="hour-1">I</div>
+                    <div class="hour" id="hour-2">II</div>
+                    <div class="hour" id="hour-3">III</div>
+                    <div class="hour" id="hour-4">IV</div>
+                    <div class="hour" id="hour-5">V</div>
+                    <div class="hour" id="hour-6">VI</div>
+                    <div class="hour" id="hour-7">VII</div>
+                    <div class="hour" id="hour-8">VIII</div>
+                    <div class="hour" id="hour-9">IX</div>
+                    <div class="hour" id="hour-10">X</div>
+                    <div class="hour" id="hour-11">XI</div>
+                    <div class="hour" id="hour-12">XII</div>
+                    <div class="hand hour-hand" id="hour-hand"></div>
+                    <div class="hand minute-hand" id="minute-hand"></div>
+                    <div class="hand second-hand" id="second-hand"></div>
+                </div>
+                <!-- digital time element -->
+                <div class="digitalTime time-item3" id="digitalTime"></div>
             </div>
-              
-            <!-- digital time and place elements -->
-            <div id="digitalTime"></div>
-            <div id="cityCountry"></div>
 
+            <!-- city/time info element -->
+            <div class="placeInfo time-item4" id="placeInfo"></div>
 
-            <button class="saveButton" id="saveButton">+ Add to Collections</button>
+            <button class="saveButton time-item5" id="saveButton">+ Add to Collections</button>
         </section>
     </main>
 

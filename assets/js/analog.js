@@ -43,9 +43,9 @@ async function fetchCityTime(city) {
         if (data && data.datetime) {
             globalTime = new Date(data.datetime);
             startClocks();
-            document.getElementById('clock').style.visibility = 'visible';
+            document.getElementById('analogTime').style.visibility = 'visible';
             document.getElementById('digitalTime').style.visibility = 'visible';
-            document.getElementById('cityCountry').style.visibility = 'visible';
+            document.getElementById('placeInfo').style.visibility = 'visible';
         } else {
             console.error('Invalid response from API or missing data'); //for invalid response or missing data
         }
@@ -102,7 +102,7 @@ function populateDatalist(suggestions) {
 
 //event listeners for city menu links
 function setupCityLinks() {
-    const cityLinks = document.querySelectorAll('.city-menu a');
+    const cityLinks = document.querySelectorAll('.menuSearch a');
 
     cityLinks.forEach(link => {
         link.addEventListener('click', (event) => {
@@ -112,7 +112,7 @@ function setupCityLinks() {
     });
 }
 
-//event listener for the search input field
+//event listener on the user search field for suggestion dropdown
 document.getElementById('citySearch').addEventListener('input', async () => {
     const input = document.getElementById('citySearch').value;
 
@@ -122,17 +122,20 @@ document.getElementById('citySearch').addEventListener('input', async () => {
     }
 });
 
-//event listener for 'Enter' key in the search input
+//event listener for 'Enter' key on user search
 document.getElementById('citySearch').addEventListener('keypress', (event) => {
     if (event.key === 'Enter') {
-        const input = document.getElementById('citySearch').value;
-        handleCitySelection(input);
+        const input = document.getElementById('citySearch').value.trim();
+
+        if (input) {
+            handleCitySelection(input);
+        }
     }
 });
 
-//event listener for the search button
+//event listener for the search button on user search
 document.getElementById('searchButton').addEventListener('click', () => {
-    const input = document.getElementById('cityInput').value.trim();
+    const input = document.getElementById('citySearch').value.trim();
 
     if (input) {
         handleCitySelection(input);
@@ -211,15 +214,15 @@ function updateDigitalTimeAndCity(time, locationData) {
     }
 
     locationDisplay += `, ${locationData.country}`;
-    document.getElementById('cityCountry').innerText = locationDisplay;
+    document.getElementById('placeInfo').innerText = locationDisplay;
 }
 
 //event listener for button to add search to Collections
-document.getElementById('addToCollectionBtn').addEventListener('click', function() {
+document.getElementById('saveButton').addEventListener('click', function() {
     const collection = JSON.parse(localStorage.getItem('clockCollection')) || [];
     const newClock = {
         time: globalTime.toString(),
-        location: document.getElementById('cityCountry').innerText,
+        location: document.getElementById('placeInfo').innerText,
         timezoneOffset: globalTime.getTimezoneOffset() //save timezone offset or other relevant data
     };
 
@@ -231,8 +234,3 @@ document.getElementById('addToCollectionBtn').addEventListener('click', function
 
 //init
 startClocks();
-
-
-
-
-

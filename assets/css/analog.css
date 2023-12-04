@@ -1,52 +1,70 @@
-/* color palette (source: Rosé Pine) */
+/* color palette inspiration (source: Clockface Online */
 :root {
-    --base: rgb(25, 23, 36);
-    --surface: rgb(31, 29, 46);
-    --overlay: rgb(38, 35, 58);
-    --muted: rgb(110, 106, 134);
-    --subtle: rgb(144, 140, 170);
-    --text: rgb(224, 222, 244);
-    --love: rgb(235, 111, 146);
-    --gold: rgb(246, 193, 119);
-    --rose: rgb(235, 188, 186);
-    --pine: rgb(49, 116, 143);
-    --foam: rgb(156, 207, 216);
-    --iris: rgb(196, 167, 231);
-    --highlight-low: rgb(33, 32, 46);
-    --highlight-med: rgb(64, 61, 82);
-    --highlight-high: rgb(82, 79, 103);
+    --gen-fill: #14232e;
+    --gen-text: #94b8d1;
+    --a-text: #268ed9;
+    --hrmin-hands: #111e27;
+    --second-hand: #b3d0e6;
+
+    --analog-text: #2e526b;
+    --sleep-slice-hover: #94b8d1;
+    /* --analog-fill: #4d88b3; */
+    --work-slice-hover: #94b8d1;
+    --number-label-fill: rgba(153,213,255,.5);
+    --crosshairs-stroke: rgba(153,213,255,.3);
+    /* --analog-border: rgba(0,0,0,.6); */
+    --tooltip-text: #aaa;
+    /* --analog-fill: #eee; */
+    --analog-fill: #111e27;
+    --mini-clock-face-hover: #2e526b;
+    --mini-clock-slice-fill: #3d6d8f;
+    --mini-clock-slice-hover: #70a0c2;
+    --timer-display-border: rgba(102,191,255,.2);
+    --timer-display-text: rgba(168,210,240,.9);
+    --bedtime-border: rgba(158,212,250,.7);
+    --bedtime-boxshadow: rgba(110,190,247,.5);
+    --analog-fill: rgba(112,160,194,.5);
+    --bedtime-background2: rgba(0,0,0,.1);
+    --ring-border: rgba(153,213,255,.1);
+    --ring-bordertop-color: rgba(153,213,255,.7);
+    --ring2-bordertop-color: rgba(153,213,255,.4);
 }
 
-#clock {
-    position: relative;
-    width: 200px;
-    height: 200px;
-    border: 5px solid black;
-    border-radius: 50%;
-    margin: 50px auto;
+.time-grid {
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: 8fr 1.5fr 0.5fr;
+    place-items: center;
+    row-gap: 10px;
+    padding: 10px 0px 20px 20px;
+}
+
+.time-item1 {
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: 3fr 1fr;
+    row-gap: 10px;
+}
+
+.time-item2 {
+    place-self: center;
     display: flex;
     align-items: center;
     justify-content: center;
-}
-
-#digitalTime, #cityCountry {
-    text-align: center;
-    margin-top: 10px;
-    font-size: 20px;
-}
-
-#clock, #digitalTime, #cityCountry {
-    visibility: hidden;
-}
-
-#digitalTime, #cityCountry {
-    padding-bottom: 20px;
+    position: relative;
+    width: 600px;
+    height: 600px;
+    border: 10px solid black;
+    border-radius: 50%;
+    margin: 50px auto;    
 }
 
 .hour {
+    font-family: 'Montserrat', sans-serif;
+    color: var(----analog-text);
     position: absolute;
-    font-size: 18px;
-    width: 30px;
+    font-size: 46px;
+    width: 90px;
     text-align: center;
     transform-origin: center;
 }
@@ -54,76 +72,116 @@
 /* adjust the initial rotation for each numeral */
 /* start from -90 degrees for XII and add 30 degrees for each subsequent hour */
 #hour-1 { 
-    transform: rotate(-60deg) translate(85px) rotate(60deg); 
+    transform: rotate(-60deg) translate(255px) rotate(60deg); 
 }
 
 #hour-2 { 
-    transform: rotate(-30deg) translate(85px) rotate(30deg); 
+    transform: rotate(-30deg) translate(255px) rotate(30deg); 
 }
 
 #hour-3 { 
-    transform: rotate(0deg) translate(85px) rotate(0deg); 
+    transform: rotate(0deg) translate(255px) rotate(0deg); 
 }
 
 #hour-4 { 
-    transform: rotate(30deg) translate(85px) rotate(-30deg); 
+    transform: rotate(30deg) translate(255px) rotate(-30deg); 
 }
 
 #hour-5 { 
-    transform: rotate(60deg) translate(85px) rotate(-60deg); 
+    transform: rotate(60deg) translate(255px) rotate(-60deg); 
 }
 
 #hour-6 { 
-    transform: rotate(90deg) translate(85px) rotate(-90deg); 
+    transform: rotate(90deg) translate(255px) rotate(-90deg); 
 }
 
 #hour-7 { 
-    transform: rotate(120deg) translate(85px) rotate(-120deg); 
+    transform: rotate(120deg) translate(255px) rotate(-120deg); 
 }
 
 #hour-8 { 
-    transform: rotate(150deg) translate(85px) rotate(-150deg); 
+    transform: rotate(150deg) translate(255px) rotate(-150deg); 
 }
 
 #hour-9 { 
-    transform: rotate(180deg) translate(85px) rotate(-180deg); 
+    transform: rotate(180deg) translate(255px) rotate(-180deg); 
 }
 
 #hour-10 { 
-    transform: rotate(210deg) translate(85px) rotate(-210deg); 
+    transform: rotate(210deg) translate(255px) rotate(-210deg); 
 }
 
 #hour-11 { 
-    transform: rotate(240deg) translate(85px) rotate(-240deg); 
+    transform: rotate(240deg) translate(255px) rotate(-240deg); 
 }
 
 #hour-12 { 
-    transform: rotate(270deg) translate(85px) rotate(-270deg); 
+    transform: rotate(270deg) translate(255px) rotate(-270deg); 
 }
   
 .hand {
     position: absolute;
+    border-radius: 8px;
+    transform-origin: bottom;
+}
+
+.hour-hand {
     bottom: 50%;
     left: 50%;
-    transform-origin: bottom;
-}
-  
-#hour-hand {
-    width: 4px;
-    height: 40px;
-    background-color: black;
+    width: 5px; 
+    height: 200px;
+    background-color: var(--second-hand);
 }
 
-#minute-hand {
-    width: 3px;
-    height: 60px;
-    background-color: gray;
+.minute-hand {
+    bottom: 50%;
+    left: 50%;
+    width: 5px; 
+    height: 250px; 
+    background-color: var(--second-hand);
 }
 
-#second-hand {
-    width: 2px;
-    height: 70px;
-    background-color: red;
-    transform-origin: bottom;
-    animation: none; /* animation handled by JS */
+.second-hand {
+    bottom: 50%;
+    left: 50%;
+    width: 2px; 
+    height: 285px;
+    background-color: var(--second-hand);
+    animation: none; 
+}
+
+.time-item3 {
+    place-self: center start;
+}
+
+.time-item4 {
+    place-self: center;
+}
+
+/* saveButton */
+.time-item5 { 
+    border: 8px;
+    border-radius: 2px;
+    box-shadow: none;
+    color: white;     
+    font-size: 1.5rem;
+    font-family: PP Neue Montreal,Helvetica Neue,Helvetica,Arial,sans-serif; 
+    font-weight: 200;
+    padding: 15px 22.5px;
+    text-align: center;
+    letter-spacing: 1px;
+    width: 30%;
+
+    background-image: linear-gradient(
+        to right, #16222A 0%, 
+        #3A6073  50%, 
+        #16222A  100%
+    );
+    background-size: 200% auto;
+    transition: 0.5s;
+}
+
+/* saveButton:hover */
+.time-item5:hover {
+    background-position: 92.5% center; /* background gradient is translated left */
 }
